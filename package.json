@@ -12,10 +12,14 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.3.1",
+    "@storyblok/astro": "^5.0.1",
+    "@storyblok/richtext": "^2.0.0",
     "astro": "^4.0.3",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vite": "^5.4.2"
   },
   "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
     "husky": "^8.0.3",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.1"
