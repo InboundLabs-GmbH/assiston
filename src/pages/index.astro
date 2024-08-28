@@ -1,16 +1,25 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import SkipLink from "@utils/SkipLink.astro";
-import DeleteMe from "@components/DeleteMe.astro";
-import BackToTop from "@utils/BackToTop.astro";
+
+import { useStoryblokApi } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/home", {
+  version: import.meta.env.DEV ? "draft" : "published",
+});
+const content = data.story.content;
 ---
 
-<Layout title="Astronaut - Astro starter template">
-  <SkipLink />
-  <div class="sr-only" id="start"></div>
-  <DeleteMe />
-  <section aria-label="Utilities">
-    <!-- You could also add a theme switch here or anything considered a utility -->
-    <BackToTop />
-  </section>
+<Layout title="Assiston e.V.">
+  <main>
+    <StoryblokComponent blok={content} />
+  </main>
 </Layout>
+
+<style>
+  main {
+    margin: 0 auto;
+    max-width: 120ch;
+  }
+</style>

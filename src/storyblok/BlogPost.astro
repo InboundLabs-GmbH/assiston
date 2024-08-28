@@ -1,0 +1,15 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import { richTextResolver } from "@storyblok/richtext";
+
+const { render } = richTextResolver();
+
+const { blok } = Astro.props;
+const content = render(blok.content);
+---
+
+<article {...storyblokEditable(blok)}>
+  <h1>{blok.title}</h1>
+  <p>{blok.description}</p>
+  <Fragment set:html={content} />
+</article>
