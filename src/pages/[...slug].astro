@@ -10,6 +10,8 @@ export async function getStaticPaths() {
   return await generateStaticPaths();
 }
 
+export const prerender = true;
+
 const params = Astro.params;
 
 let props = isPreview() ? parseUrl(params?.slug) : Astro.props;
