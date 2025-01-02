@@ -1,22 +1,23 @@
 ---
-import "@styles/reset.css";
-import "@styles/global.css";
-import "@styles/variables.css";
+import "../styles.css";
+import Footer from "@components/footer.astro";
 
 export interface Props {
+  noFooter?: boolean;
   title: string;
 }
 
-const { title } = Astro.props;
+const { noFooter, title } = Astro.props;
 
 const metaData = {
   keywords: "html, css, javascript, astro, static site generator",
-  description: "Astronaut - Starter template for static site generator Astro",
+  description:
+    "Beratung für Menschen mit Behinderung und deren Angehörige zu den Themen Teilhabe, Wohnen, Freizeit, Assistenz und Vereine.",
   imageType: "image/png",
   imageWidth: "1600",
   imageHeight: "882",
   type: "website",
-  siteName: "Astronaut",
+  siteName: "Assiston e.V.",
   twitterCard: "summary_large_image",
 };
 
@@ -54,4 +55,5 @@ const socialImageURL = new URL("/seo.png", Astro.url);
   <body>
     <slot />
   </body>
+  {noFooter ? <Footer /> : null}
 </html>
