@@ -1,15 +1,37 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import HeroSection from "@components/hero-section.astro";
 ---
 
 <Layout title="Über uns - Assiston e.V.">
-  <header>
-    <h1>Über uns</h1>
+  <HeroSection
+    heading="Wir stehen an Ihrer Seite"
+    kicker="wir verhelfen Ihnen zu einem selbstbestimmten Leben"
+  />
+
+  <main id="main">
+    <h2>Wir glauben an die Selbstbestimmung und Rechte aller Menschen.</h2>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sequi non
-      illum porro! Itaque dolorum atque praesentium aspernatur doloribus
-      corporis maiores suscipit debitis ipsam sunt delectus nihil, illum
-      adipisci earum.
+      Deshalb haben wir es uns zur Aufgabe gemacht, Menschen mit Hilfebedarf ein
+      selbstbestimmtes Leben zu ermöglichen. Wir verstehen, dass der Weg zu mehr
+      Unabhängigkeit und  Selbstbestimmung nicht immer einfach ist. Mit
+      jahrelanger Erfahrung in der Umsetzung von Assistenzdienstleistung stehen
+      wir Ihnen kompetent zur Seite
     </p>
-  </header>
+    <!-- TODO Add image -->
+    <p>
+      Unser Team besteht aus Wolfgang Vogt, Nina Wirth und Eva-Marie Wülk.  Wir
+      sorgen im Hintergrund für reibungslose Abläufe rund um die Beratung,
+      Terminkoordination und Verwaltungsthemen.
+    </p>
+    <p>
+      Unsere Assistent*innen leisten aber die wichtigste  Arbeit vor Ort bei den
+      Assistenznehmer*innen.
+    </p>
+    <div>
+      <!-- TODO Add image -->
+      <!-- TODO Add image -->
+      <!-- TODO Add image -->
+    </div>
+  </main>
 </Layout>

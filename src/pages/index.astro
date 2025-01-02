@@ -1,15 +1,119 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import HeroSection from "@components/hero-section.astro";
 ---
 
 <Layout title="Assiston e.V.">
-  <header>
-    <h1>Assiston e.V.</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sequi non
-      illum porro! Itaque dolorum atque praesentium aspernatur doloribus
-      corporis maiores suscipit debitis ipsam sunt delectus nihil, illum
-      adipisci earum.
-    </p>
-  </header>
+  <HeroSection
+    heading="Herzlich Willkommen"
+    kicker="bei Assiston Assistenzhilfe"
+  />
+
+  <main id="main">
+    <section aria-label="Assistenz">
+      <h2>Persönliche Assistenz</h2>
+
+      <p>
+        Wenn Sie von einem Persönlichen Budget profitieren, können Sie unsere
+        Dienste ganz einfach in Anspruch nehmen.
+      </p>
+      <a href="/personal-budget"></a>
+      <p>
+        Unser Assistenzdienst ist dazu da, um Ihnen das Leben unabhängiger und
+        selbstbestimmter zu machen und können Ihren gesamten Lebensbereich
+        umfassen. Die Persönliche Assistent*innen unterstützen Sie dabei.
+      </p>
+      <p>
+        Die Aufgaben können dabei vielfältig sein und der Umfang richtet sich
+        nach Ihrem individuellen Bedarf.
+      </p>
+
+      <h3>Wir bieten Hilfe an bei:</h3>
+
+      <ul>
+        <li>Kleinen Botengängen</li>
+        <li>Der Kommunikation (mit wem?)</li>
+        <li>Haushalts- und Pflegetätigkeiten</li>
+        <li>Ausflügen in den Urlaub</li>
+        <li>24-Stunden-Betreuung</li>
+      </ul>
+    </section>
+
+    <section aria-label="Unterstützung">
+      <h2>Bereiche der Unterstützung</h2>
+
+      <ul>
+        <li>Arbeit</li>
+        <li>Freizeit</li>
+        <li>Schule / Studium</li>
+        <li>Zuhause</li>
+      </ul>
+
+      <dl>
+        <dt>Antragstellung</dt>
+        <dd>
+          Die Antragstellung erfolgt nur bei einem Leistungsträger. s.
+          Sozialgesetzbuch 9, Paragraph 29 (SGB IX, §29)
+        </dd>
+        <dd>
+          “Auf Antrag der Leistungsberechtigten werden Leistungen zur Teilhabe
+          durch die Leistungsform eines persönlichen Budgets ausgeführt, um den
+          Leistungsberechtigten in eigener Verantwortung ein möglichst
+          selbstbestimmtes Leben zu ermöglichen.”
+        </dd>
+        <dd>
+          Wir unterstützen Sie bei der Antragstellung beim entsprechenden
+          Leistungsträger.
+        </dd>
+
+        <dt>Prüfung des Anspruchs</dt>
+        <dd>
+          Der jeweilige Leistungsträger prüft deinen Anspruch und führt eine
+          Bedarfsermittlung durch. Dabei wird ermittelt, welche Unterstützung
+          Sie benötigen und wie hoch das Persönliche Budget ausfällt.
+        </dd>
+
+        <dt>Zielvereinbarung</dt>
+        <dd>
+          Dies ist die Grundlage für den Bewilligungsbescheid und muss von
+          beiden Parteien unterschrieben werden.
+        </dd>
+
+        <dt>Auszahlung des Persönlichen Budgets</dt>
+        <dd>
+          Im besten Fall übernehmen wir direkt mit dem Kostenträger die
+          Abrechnung, damit Sie keinen bürokratischen Aufwand haben.
+        </dd>
+      </dl>
+    </section>
+
+    <section aria-label="Team">
+      <h2>Dein Team</h2>
+      <p>
+        Nachdem der Antrag genehmigt wurde, sorgen wir für die Zusammenstellung
+        Ihres Teams. Dabei steht die Sympathie zwischen Ihnen und den
+        Assistent*innen an oberster Stelle.
+      </p>
+
+      <dl>
+        <dt>Teamkoordination & Einsatzplanung</dt>
+        <dd>
+          Wir erstellen monatliche Dienst- und Backup-Pläne und berücksichtigen
+          dabei Ihre Wünsche und die der Assistent*innen.
+        </dd>
+
+        <dt>Teamsitzung</dt>
+        <dd>
+          Regelmäßige Teamtreffen stärken das Zusammengehörigkeitsgefühl und
+          verbessern die Kommunikation.
+        </dd>
+
+        <dt>Bürokratie</dt>
+        <dd>
+          Wir übernehmen den gesamten administrativen Teil – von der Buchhaltung
+          bis zur Lohnabrechnung
+        </dd>
+      </dl>
+    </section>
+  </main>
 </Layout>

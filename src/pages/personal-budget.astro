@@ -1,15 +1,114 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import HeroSection from "@components/hero-section.astro";
 ---
 
 <Layout title="Persönliches Budget - Assiston e.V.">
-  <header>
-    <h1>Persönliches Budget</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sequi non
-      illum porro! Itaque dolorum atque praesentium aspernatur doloribus
-      corporis maiores suscipit debitis ipsam sunt delectus nihil, illum
-      adipisci earum.
-    </p>
-  </header>
+  <HeroSection
+    heading="Das Persönliche Budget"
+    kicker="Was ist das Persönliche Budget und wie kann ich es erhalten?"
+  />
+
+  <main id="main">
+    <section aria-label="Allgemein">
+      <h2>Wer kann es beantragen?</h2>
+
+      <p>
+        Ein Persönliches Budget ist eine wichtige finanzielle Unterstützung.
+      </p>
+      <p>
+        Das Persönliche Budget hilft, ein selbstbestimmtes Leben zu führen. Sie
+        können selbst entscheiden, welche Assistenzleistungen Sie benötigen.
+      </p>
+
+      <dl>
+        <dt>Menschen mit Behinderungen</dt>
+        <dd>
+          Jeder behinderte oder von Behinderung bedrohte Mensch, egal wie schwer
+          die Behinderung ist.
+        </dd>
+
+        <dt>Unterstützungsbedürftige</dt>
+        <dd>
+          Menschen, die aufgrund ihrer Behinderung, das Geld nicht alleine
+          verwalten können.
+        </dd>
+
+        <dt>Elternhilfe</dt>
+        <dd>Eltern für ihre behinderten Kinder.</dd>
+      </dl>
+    </section>
+
+    <section aria-label="Prozess">
+      <h2>Wo kann ich es beantragen?</h2>
+
+      <p>
+        Sie schreiben einen Antrag für das Persönliche Budget und reichen diesen
+        bei ihrer zuständigen Behörde ein. Wir helfen Ihnen dabei, den richtigen
+        Kostenträger für Sie zu finden. Nähere Informationen finden Sie, indem
+        Sie auf den Link klicken.
+      </p>
+      <!-- ? Add link -->
+
+      <h3>Ablauf des Verfahrens</h3>
+
+      <!-- TODO Add illustrations -->
+
+      <dl>
+        <dt>Beratungsgespräch</dt>
+        <dd>bei einem Kostenträger oder einer EUTB.</dd>
+
+        <dt>Antragstellung</dt>
+        <dd>
+          Der erste Schritt ist, einen Antrag bei Ihrer zuständigen
+          Sozialbehörde oder dem Träger der Eingliederungshilfe zu stellen.
+        </dd>
+
+        <dt>Bedarfsfeststellung</dt>
+        <dd>
+          In der Regel wird ein Bedarfsgutachten erstellt, um festzustellen,
+          welche Unterstützungsleistungen für Sie erforderlich sind.
+        </dd>
+
+        <dt>Zielvereinbarung</dt>
+        <dd>
+          Die Zielvereinbarung muss zu Ihnen passen und Sie müssen die Ziele
+          auch schaffen können.
+        </dd>
+
+        <dt>Bewilligung und Bescheid</dt>
+        <dd>
+          Wenn Ihr Antrag genehmigt wird, erhalten Sie das Persönliche Budget,
+          welches Sie dann nutzen können, um Ihre gewünschte Dienstleistung zu
+          finanzieren.
+        </dd>
+      </dl>
+
+      <p>
+        Wird das Persönliche Budget ausschließlich durch die Pflegeversicherung
+        erbracht, ist keine Zielvereinbarung notwendig.
+      </p>
+    </section>
+
+    <section aria-label="Leistungen">
+      <h2>Welche Leistungen sind enthalten?</h2>
+
+      <!-- TODO Add illustrations -->
+
+      <ul role="list">
+        <li>Wohnen und Alltagsunterstützung</li>
+        <li>Grundpflege</li>
+        <li>Freizeit und Kultur</li>
+        <li>Urlaub</li>
+        <li>Arbeit, Ausbildung, Studium &amp; Schule</li>
+        <li>Begleitung zu Terminen</li>
+      </ul>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  ul {
+    list-style: initial;
+  }
+</style>

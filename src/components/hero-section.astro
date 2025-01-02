@@ -1,0 +1,14 @@
+---
+export interface Props {
+  heading: string;
+  kicker?: string;
+}
+
+const { heading, kicker } = Astro.props;
+---
+
+<header>
+  <h1>{heading}</h1>
+  <p>{kicker}</p>
+  <!-- TODO Add hero image -->
+</header>

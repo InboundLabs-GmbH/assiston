@@ -1,15 +1,73 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import HeroSection from "@components/hero-section.astro";
 ---
 
 <Layout title="Leistungen - Assiston e.V.">
-  <header>
-    <h1>Leistungen</h1>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sequi non
-      illum porro! Itaque dolorum atque praesentium aspernatur doloribus
-      corporis maiores suscipit debitis ipsam sunt delectus nihil, illum
-      adipisci earum.
-    </p>
-  </header>
+  <HeroSection heading="Unsere Leistungen" />
+
+  <main id="main">
+    <section aria-label="Ablauf">
+      <div>
+        <h2>Sie haben sich für eine persönliche Assistenz entschieden.</h2>
+        <p>
+          Jetzt helfen wir Ihnen dabei ein rundum-sorglos-Paket zur Verfügung zu
+          stellen, so dass Sie sich auf ein selbstbestimmtes Leben konzentrieren
+          können.
+        </p>
+        <!-- TODO Add image -->
+      </div>
+
+      <dl>
+        <dt>1. Erstgespräch</dt>
+        <dd>
+          Dabei besprechen wir Ihre Wünsche und helfen Ihnen bei der
+          Antragstellung, falls Sie noch keinen gestellt haben.
+        </dd>
+
+        <dt>2. Team finden</dt>
+        <dd>
+          Nachdem Ihr Antrag genehmigt wurde, kümmern wir uns in Absprache mit
+          Ihnen um die Zusammenstellung eines Assistenzteams.
+        </dd>
+
+        <dt>3. Teamkoordination und Teamsitzungen</dt>
+        <dd>
+          Wir helfen bei der Organisation und Koordination der Teams und legen
+          Wert auf regelmäßige Teamsitzungen.
+        </dd>
+
+        <dt>4. Personalverwaltung und Abrechnung</dt>
+        <dd>Wir übernehmen komplett alle administrativen Aufgaben für Sie.</dd>
+      </dl>
+    </section>
+
+    <section aria-label="Details">
+      <h2>Unser Service für Sie!</h2>
+
+      <ul role="list">
+        <li>Eigener Dienstplan</li>
+        <li>Individuelle Dienstzeiten</li>
+        <li>Festes Team</li>
+        <li>Verwaltungsaufgaben</li>
+        <li>Hilfe bei Antragstellung</li>
+      </ul>
+      <!-- TODO Add image -->
+    </section>
+
+    <section aria-label="Umsetzung">
+      <h2>Umsetzung</h2>
+
+      <p>Jeder Kunde hat andere Anforderungen, auf die wir eingehen!</p>
+      <p>
+        Wir freuen uns, individuell auf jeden Kunden mit den unterschiedlichsten
+        Bedürfnissen eingehen zu dürfen.
+      </p>
+      <p>
+        So weit es geht, versuchen wir, Dienstpläne, Kommunikation und andere
+        Themen so zu gestalten, dass ein optimales Arbeitsumfeld für Sie
+        entsteht.
+      </p>
+    </section>
+  </main>
 </Layout>
