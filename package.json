@@ -11,11 +11,11 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@astrojs/check": "^0.3.1",
-    "@astrojs/netlify": "^5.5.1",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/netlify": "^6.0.1",
     "@storyblok/astro": "^5.0.1",
     "@storyblok/richtext": "^2.0.0",
-    "astro": "^4.0.3",
+    "astro": "^5.1.1",
     "typescript": "^5.2.2",
     "vite": "^5.4.2"
   },
