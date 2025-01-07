@@ -1,0 +1,132 @@
+---
+import Layout from "@layouts/Layout.astro";
+import HeroSection from "@components/hero-section.astro";
+import { Image } from "astro:assets";
+
+import dog from "@images/about-us/1-dog.jpeg";
+import group from "@images/about-us/2-group.jpeg";
+import walking from "@images/about-us/3-walking.jpeg";
+import armsUp from "@images/about-us/4-arms-up.jpeg";
+import selfie from "@images/about-us/5-selfie.jpeg";
+---
+
+<Layout title="Über uns - Assiston e.V.">
+  <HeroSection
+    heading="Wir stehen an Ihrer Seite"
+    kicker="wir verhelfen Ihnen zu einem selbstbestimmten Leben"
+  />
+
+  <main id="main">
+    <div class="first">
+      <div>
+        <h2>
+          Wir glauben an die Selbst&shy;be&shy;stimm&shy;ung und Rechte aller
+          Men&shy;schen.
+        </h2>
+        <p>
+          Deshalb haben wir es uns zur Aufgabe gemacht, Menschen mit Hilfebedarf
+          ein selbstbestimmtes Leben zu ermöglichen. Wir verstehen, dass der Weg
+          zu mehr Unabhängigkeit und Selbstbestimmung nicht immer einfach ist.
+          Mit jahrelanger Erfahrung in der Umsetzung von Assistenzdienstleistung
+          stehen wir Ihnen kompetent zur Seite
+        </p>
+      </div>
+      <Image alt="" class="image" src={dog} width={560} />
+    </div>
+
+    <div class="second">
+      <div>
+        <Image alt="" class="image" src={group} />
+        <div class="flex">
+          <p>
+            Unser Team besteht aus Wolfgang Vogt, Nina Wirth und Eva-Marie Wülk.
+            Wir sorgen im Hintergrund für reibungslose Abläufe rund um die
+            Beratung, Terminkoordination und Verwaltungsthemen.
+          </p>
+          <p>
+            Unsere Assistent*innen leisten aber die wichtigste Arbeit vor Ort
+            bei den Assistenznehmer*innen.
+          </p>
+        </div>
+        <div class="gallery">
+          <Image alt="" class="image" src={walking} />
+          <Image alt="" class="image" src={armsUp} />
+          <Image alt="" class="image" src={selfie} />
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  /* General */
+  h2 {
+    font-size: var(--step-3);
+  }
+
+  /* img {
+    border-radius: ;
+    height: auto;
+  } */
+
+  .first,
+  .second > div {
+    margin: 0 auto;
+    max-width: 1440px;
+    padding: var(--space-2xl) var(--space-m);
+  }
+
+  /* Section 1 */
+
+  .first {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+    justify-content: space-between;
+  }
+
+  .first > div {
+    width: fit-content;
+  }
+
+  .first h2 {
+    max-width: 30ch;
+  }
+
+  .first p {
+    max-width: 50ch;
+  }
+
+  /* Section 2 */
+
+  .second {
+    background: var(--color-light-cream-50);
+  }
+
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+    justify-content: space-between;
+    margin-top: var(--space-xl);
+  }
+
+  .flex p {
+    margin: 0;
+    max-width: 40ch;
+  }
+
+  /* Gallery */
+  .gallery {
+    display: grid;
+    grid-gap: var(--space-m);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 50ch), 1fr));
+    margin-top: var(--space-xl);
+  }
+
+  .gallery img {
+    align-self: stretch;
+    object-fit: cover;
+  }
+</style>

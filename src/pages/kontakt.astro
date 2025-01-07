@@ -1,0 +1,66 @@
+---
+import Layout from "@layouts/Layout.astro";
+// import HeroSection from "@components/hero-section.astro";
+import { Image } from "astro:assets";
+
+import group from "@images/contact/1-group.jpeg";
+---
+
+<Layout title="Kontakt - Assiston e.V.">
+  <!-- <HeroSection heading="Kontakt" /> -->
+  <main id="main">
+    <div class="container">
+      <div class="flex">
+        <div>
+          <h2 class="highlight">
+            Sie haben Fragen zu unseren Leistungen oder wünschen eine
+            persönliche Beratung?
+          </h2>
+          <p>
+            Dann schreiben Sie uns gerne eine Nachricht über das
+            Kontaktformular, schicken uns eine E-Mail oder rufen direkt bei uns
+            an.
+          </p>
+        </div>
+        <Image
+          alt="Gruppe von Menschen stehen in einem Kreis und lachen miteinander"
+          src={group}
+          width={532}
+        />
+      </div>
+
+      <p>Der Zugang ist barriere&shy;frei!</p>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .flex {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+  }
+
+  .highlight {
+    max-width: 30ch;
+  }
+
+  p {
+    max-width: 45ch;
+  }
+
+  img {
+    border-radius: 8px;
+    height: auto;
+  }
+
+  .container > p:last-child {
+    color: var(--color-primary);
+    font-family: "Lexend Medium", Geneva, Tahoma, sans-serif;
+    font-size: var(--step-3);
+    hyphens: manual;
+    margin: var(--space-2xl) auto 0 auto;
+    width: fit-content;
+  }
+</style>

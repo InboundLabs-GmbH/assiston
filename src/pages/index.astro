@@ -1,119 +1,344 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import HeroSection from "@components/hero-section.astro";
+import Navigation from "@components/navigation.astro";
+
+import { Image } from "astro:assets";
+
+import home from "@images/illustrations/index/home.svg";
+import hobby from "@images/illustrations/index/hobby.svg";
+import study from "@images/illustrations/index/study.svg";
+import work from "@images/illustrations/index/work.svg";
+
+import enquiry from "@images/illustrations/index/1-enquiry.svg";
+import check from "@images/illustrations/index/2-check.svg";
+import goals from "@images/illustrations/index/3-goals.svg";
+import payment from "@images/illustrations/index/4-payment.svg";
 ---
 
-<Layout title="Assiston e.V.">
-  <HeroSection
+<Layout title="Assiston e.V. - Startseite">
+  <!-- <HeroSection
     heading="Herzlich Willkommen"
     kicker="bei Assiston Assistenzhilfe"
-  />
+  /> -->
 
   <main id="main">
     <section aria-label="Assistenz">
-      <h2>Persönliche Assistenz</h2>
+      <h2>Per&shy;sön&shy;li&shy;che As&shy;sis&shy;tenz</h2>
 
-      <p>
-        Wenn Sie von einem Persönlichen Budget profitieren, können Sie unsere
-        Dienste ganz einfach in Anspruch nehmen.
-      </p>
-      <a href="/personal-budget"></a>
-      <p>
-        Unser Assistenzdienst ist dazu da, um Ihnen das Leben unabhängiger und
-        selbstbestimmter zu machen und können Ihren gesamten Lebensbereich
-        umfassen. Die Persönliche Assistent*innen unterstützen Sie dabei.
-      </p>
-      <p>
-        Die Aufgaben können dabei vielfältig sein und der Umfang richtet sich
-        nach Ihrem individuellen Bedarf.
-      </p>
+      <div class="smol-flexbox-grid">
+        <div>
+          <p>
+            Wenn Sie von einem Persönlichen Budget profitieren, können Sie
+            unsere Dienste ganz einfach in Anspruch nehmen.
+          </p>
 
-      <h3>Wir bieten Hilfe an bei:</h3>
+          <a href="/persoenliches-budget">Persönliches Budget</a>
+        </div>
 
-      <ul>
-        <li>Kleinen Botengängen</li>
-        <li>Der Kommunikation (mit wem?)</li>
-        <li>Haushalts- und Pflegetätigkeiten</li>
-        <li>Ausflügen in den Urlaub</li>
-        <li>24-Stunden-Betreuung</li>
-      </ul>
+        <div>
+          <p>
+            Unser Assistenzdienst ist dazu da, um Ihnen das Leben unabhängiger
+            und selbstbestimmter zu machen und können Ihren gesamten
+            Lebensbereich umfassen. Die Persönliche Assistent*innen unterstützen
+            Sie dabei.
+          </p>
+
+          <p>
+            Die Aufgaben können dabei vielfältig sein und der Umfang richtet
+            sich nach Ihrem individuellen Bedarf.
+          </p>
+        </div>
+
+        <div>
+          <h3>Wir bieten Hilfe an bei:</h3>
+
+          <ul>
+            <li>Kleinen Botengängen</li>
+            <li>Der Kommunikation (mit wem?)</li>
+            <li>Haushalts- und Pflegetätigkeiten</li>
+            <li>Ausflügen in den Urlaub</li>
+            <li>24-Stunden-Betreuung</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <section aria-label="Unterstützung">
-      <h2>Bereiche der Unterstützung</h2>
+      <h2>Be&shy;rei&shy;che der Un&shy;ter&shy;stüt&shy;zung</h2>
 
-      <ul>
-        <li>Arbeit</li>
-        <li>Freizeit</li>
-        <li>Schule / Studium</li>
-        <li>Zuhause</li>
+      <ul class="smol-css-grid support" role="list">
+        <li>
+          <Image alt="" src={work} />
+          <span>Arbeit</span>
+        </li>
+        <li>
+          <Image alt="" src={hobby} />
+          <span>Freizeit</span>
+        </li>
+        <li>
+          <Image alt="" src={study} />
+          <span>Schule / Studium</span>
+        </li>
+        <li>
+          <Image alt="" src={home} />
+          <span>Zuhause</span>
+        </li>
       </ul>
 
-      <dl>
-        <dt>Antragstellung</dt>
-        <dd>
-          Die Antragstellung erfolgt nur bei einem Leistungsträger. s.
-          Sozialgesetzbuch 9, Paragraph 29 (SGB IX, §29)
-        </dd>
-        <dd>
-          “Auf Antrag der Leistungsberechtigten werden Leistungen zur Teilhabe
-          durch die Leistungsform eines persönlichen Budgets ausgeführt, um den
-          Leistungsberechtigten in eigener Verantwortung ein möglichst
-          selbstbestimmtes Leben zu ermöglichen.”
-        </dd>
-        <dd>
-          Wir unterstützen Sie bei der Antragstellung beim entsprechenden
-          Leistungsträger.
-        </dd>
+      <dl class="smol-card-grid">
+        <div class="card-wrapper">
+          <Image alt="" src={enquiry} />
+          <div class="card">
+            <dt>1. An&shy;trag&shy;stell&shy;ung</dt>
+            <dd>
+              Die Antragstellung erfolgt nur bei einem Leistungsträger. s.
+              Sozialgesetzbuch 9, Paragraph 29 (SGB IX, §29)
+            </dd>
+            <dd>
+              “Auf Antrag der Leistungsberechtigten werden Leistungen zur
+              Teilhabe durch die Leistungsform eines persönlichen Budgets
+              ausgeführt, um den Leistungsberechtigten in eigener Verantwortung
+              ein möglichst selbstbestimmtes Leben zu ermöglichen.”
+            </dd>
+            <dd>
+              Wir unterstützen Sie bei der Antragstellung beim entsprechenden
+              Leistungsträger.
+            </dd>
+          </div>
+        </div>
 
-        <dt>Prüfung des Anspruchs</dt>
-        <dd>
-          Der jeweilige Leistungsträger prüft deinen Anspruch und führt eine
-          Bedarfsermittlung durch. Dabei wird ermittelt, welche Unterstützung
-          Sie benötigen und wie hoch das Persönliche Budget ausfällt.
-        </dd>
+        <div class="card-wrapper">
+          <Image alt="" src={check} />
+          <div class="card">
+            <dt>2. Prü&shy;fung des An&shy;spruchs</dt>
+            <dd>
+              Der jeweilige Leistungsträger prüft deinen Anspruch und führt eine
+              Bedarfsermittlung durch. Dabei wird ermittelt, welche
+              Unterstützung Sie benötigen und wie hoch das Persönliche Budget
+              ausfällt.
+            </dd>
+          </div>
+        </div>
 
-        <dt>Zielvereinbarung</dt>
-        <dd>
-          Dies ist die Grundlage für den Bewilligungsbescheid und muss von
-          beiden Parteien unterschrieben werden.
-        </dd>
+        <div class="card-wrapper">
+          <Image alt="" src={goals} />
+          <div class="card">
+            <dt>3. Ziel&shy;ver&shy;ein&shy;bar&shy;ung</dt>
+            <dd>
+              Dies ist die Grundlage für den Bewilligungsbescheid und muss von
+              beiden Parteien unterschrieben werden.
+            </dd>
+          </div>
+        </div>
 
-        <dt>Auszahlung des Persönlichen Budgets</dt>
-        <dd>
-          Im besten Fall übernehmen wir direkt mit dem Kostenträger die
-          Abrechnung, damit Sie keinen bürokratischen Aufwand haben.
-        </dd>
+        <div class="card-wrapper">
+          <Image alt="" src={payment} />
+          <div class="card">
+            <dt>
+              4. Aus&shy;zahl&shy;ung des Per&shy;sön&shy;lich&shy;en
+              Bud&shy;gets
+            </dt>
+            <dd>
+              Im besten Fall übernehmen wir direkt mit dem Kostenträger die
+              Abrechnung, damit Sie keinen bürokratischen Aufwand haben.
+            </dd>
+          </div>
+        </div>
       </dl>
     </section>
 
     <section aria-label="Team">
-      <h2>Dein Team</h2>
-      <p>
-        Nachdem der Antrag genehmigt wurde, sorgen wir für die Zusammenstellung
-        Ihres Teams. Dabei steht die Sympathie zwischen Ihnen und den
-        Assistent*innen an oberster Stelle.
-      </p>
+      <div>
+        <h2>Dein Team</h2>
 
-      <dl>
-        <dt>Teamkoordination & Einsatzplanung</dt>
-        <dd>
-          Wir erstellen monatliche Dienst- und Backup-Pläne und berücksichtigen
-          dabei Ihre Wünsche und die der Assistent*innen.
-        </dd>
+        <p>
+          Nachdem der Antrag genehmigt wurde, sorgen wir für die
+          Zusammenstellung Ihres Teams. Dabei steht die Sympathie zwischen Ihnen
+          und den Assistent*innen an oberster Stelle.
+        </p>
 
-        <dt>Teamsitzung</dt>
-        <dd>
-          Regelmäßige Teamtreffen stärken das Zusammengehörigkeitsgefühl und
-          verbessern die Kommunikation.
-        </dd>
+        <dl class="team-card-grid">
+          <div class="item">
+            <dt>Teamkoordination & Einsatzplanung</dt>
+            <dd>
+              Wir erstellen monatliche Dienst- und Backup-Pläne und
+              berücksichtigen dabei Ihre Wünsche und die der Assistent*innen.
+            </dd>
+          </div>
 
-        <dt>Bürokratie</dt>
-        <dd>
-          Wir übernehmen den gesamten administrativen Teil – von der Buchhaltung
-          bis zur Lohnabrechnung
-        </dd>
-      </dl>
+          <div class="item">
+            <dt>Teamsitzung</dt>
+            <dd>
+              Regelmäßige Teamtreffen stärken das Zusammengehörigkeitsgefühl und
+              verbessern die Kommunikation.
+            </dd>
+          </div>
+
+          <div class="item">
+            <dt>Bürokratie</dt>
+            <dd>
+              Wir übernehmen den gesamten administrativen Teil – von der
+              Buchhaltung bis zur Lohnabrechnung
+            </dd>
+          </div>
+        </dl>
+      </div>
     </section>
   </main>
 </Layout>
+
+<style>
+  .smol-flexbox-grid {
+    --min: 60ch;
+    --gap: var(--space-m);
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+    margin-top: var(--space-m);
+  }
+
+  .smol-flexbox-grid > * {
+    flex: 1 1 var(--min);
+  }
+
+  .smol-flexbox-grid div:first-child {
+    display: flex;
+    gap: var(--space-m);
+    flex-direction: column;
+  }
+
+  .smol-css-grid {
+    --min: 18ch;
+    --gap: 1rem;
+
+    display: grid;
+    grid-gap: var(--gap);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+    justify-items: center;
+  }
+
+  /* TODO Make this a reusable component */
+  a {
+    border-radius: 2px;
+    color: var(--color-secondary-orange);
+    outline: 2px solid var(--color-secondary-orange);
+    padding: var(--space-2xs);
+    text-decoration: none;
+    width: fit-content;
+  }
+
+  a:hover {
+    background: var(--color-secondary-orange);
+    color: var(--color-light-cream-50);
+  }
+
+  section[aria-label="Assistenz"],
+  section[aria-label="Unterstützung"] {
+    padding: 0 var(--space-m);
+  }
+
+  section[aria-label="Assistenz"],
+  section[aria-label="Unterstützung"],
+  section[aria-label="Team"] div {
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+
+  section[aria-label="Unterstützung"],
+  section[aria-label="Team"] {
+    margin-top: var(--space-xl);
+  }
+
+  ul {
+    margin-top: var(--space-m);
+  }
+
+  ul li :not(.support) {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+    margin-top: var(--space-s);
+  }
+
+  ul li span {
+    font-family: "Lexend Medium", Geneva, Tahoma, sans-serif;
+    font-size: var(--step-2);
+  }
+
+  /* Support */
+
+  .support li img {
+    margin: 0;
+  }
+
+  /* Cards */
+
+  .smol-card-grid {
+    --min: 40ch;
+    --gap: var(--space-xl);
+
+    display: grid;
+    grid-gap: var(--gap);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+    margin-top: var(--space-2xl);
+  }
+
+  .card-wrapper img {
+    margin-bottom: -4rem;
+    padding: 0 var(--space-xl);
+    width: 100%;
+  }
+
+  .card {
+    background: var(--color-light-cream-50);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+    padding: var(--space-xl);
+  }
+
+  dt {
+    color: var(--color-primary);
+    font-family: "Lexend Medium", Geneva, Tahoma, sans-serif;
+    font-size: var(--step-3);
+    margin-top: var(--space-m);
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  /* Team section */
+
+  section[aria-label="Team"] {
+    background: var(--color-light-cream-50);
+  }
+
+  section[aria-label="Team"] div {
+    padding: var(--space-2xl) var(--space-m);
+  }
+
+  section[aria-label="Team"] div dt {
+    color: var(--color-secondary-green);
+  }
+
+  section[aria-label="Team"] div dd {
+    margin-top: var(--space-xs);
+  }
+
+  .team-card-grid {
+    --min: 25ch;
+    --gap: var(--space-xl);
+
+    display: grid;
+    grid-gap: var(--gap);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+  }
+
+  .team-card-grid .item {
+    padding: 0;
+  }
+</style>
