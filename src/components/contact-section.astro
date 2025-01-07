@@ -1,59 +1,274 @@
+---
+import { Image } from "astro:assets";
+
+import phone from "@images/contact/illustrations/1-phone.svg";
+import email from "@images/contact/illustrations/2-email.svg";
+import address from "@images/contact/illustrations/3-address.svg";
+import hours from "@images/contact/illustrations/4-hours.svg";
+---
+
 <section aria-label="Kontakt">
-  <h2>Kontaktiere uns</h2>
+  <div class="container">
+    <h2>Kontaktiere uns</h2>
 
-  <p>
-    Haben wir Ihr Interesse geweckt? Dann kontaktieren Sie uns über das Formular
-    oder rufen Sie uns an, um mehr über die Assistenzhilfe zu erfahren.
-  </p>
+    <p>
+      Haben wir Ihr Interesse geweckt? Dann kontaktieren Sie uns über das
+      Formular oder rufen Sie uns an, um mehr über die Assistenzhilfe zu
+      erfahren.
+    </p>
 
-  <!-- TODO Add illustrations -->
+    <!-- TODO Add illustrations -->
 
-  <dl>
-    <dt>Telefon</dt>
-    <dd>
-      <a href="tel:+4922129297380">+49 221 29 29 73 80</a>
-    </dd>
+    <dl>
+      <div>
+        <div class="img-container">
+          <Image alt="" src={phone} />
+        </div>
+        <div class="text-container">
+          <dt class="highlight">Telefon</dt>
+          <dd>
+            <a href="tel:+4922129297380">+49 221 29 29 73 80</a>
+          </dd>
+        </div>
+      </div>
 
-    <dt>E-Mail</dt>
-    <dd>
-      <a href="mailto:info@deinassistenzdienst.de">
-        info@deinassistenzdienst.de
-      </a>
-    </dd>
+      <div>
+        <div class="img-container">
+          <Image alt="" src={email} />
+        </div>
+        <div class="text-container">
+          <dt class="highlight">E-Mail</dt>
+          <dd>
+            <a href="mailto:info@deinassistenzdienst.de">
+              info@deinassistenzdienst.de
+            </a>
+          </dd>
+        </div>
+      </div>
 
-    <dt>Anschrift</dt>
-    <dd>Dein Assistenzdienst GmbH</dd>
-    <dd>Robert-Perthel-Straße 79</dd>
-    <dd>50739 Köln</dd>
+      <div>
+        <div class="img-container">
+          <Image alt="" src={address} />
+        </div>
+        <div class="text-container">
+          <dt class="highlight">Anschrift</dt>
+          <dd>Dein Assistenzdienst GmbH</dd>
+          <dd>Robert-Perthel-Straße 79</dd>
+          <dd>50739 Köln</dd>
+        </div>
+      </div>
 
-    <dt>Öffnungszeiten</dt>
-    <dd>9 Uhr bis 17 Uhr</dd>
-  </dl>
+      <div>
+        <div class="img-container">
+          <Image alt="" src={hours} />
+        </div>
+        <div class="text-container">
+          <dt class="highlight">Öffnungs&shy;zeiten</dt>
+          <dd>9 Uhr bis 17 Uhr</dd>
+        </div>
+      </div>
+    </dl>
 
-  <h2>Kontaktformular</h2>
+    <h2>Kontakt&shy;formular</h2>
 
-  <form>
-    <label for="full-name">Name (erforderlich)</label>
-    <input type="text" name="name" id="full-name" />
+    <form>
+      <div class="label-and-input">
+        <label for="full-name">Name (erforderlich)</label>
+        <input
+          aria-describedby="error"
+          aria-invalid="true"
+          id="full-name"
+          name="name"
+          required
+          type="text"
+        />
+      </div>
 
-    <label for="subject">Betreff</label>
-    <input type="text" name="betreff" id="subject" />
+      <!-- TODO Make this a reusable component -->
+      <div class="error" id="error">
+        <svg
+          class="w-6 h-6 text-gray-800 dark:text-white"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+          focusable="false"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+        </svg>
 
-    <label for="email">E-Mail (erforderlich)</label>
-    <input type="email" name="e-mail" id="email" />
+        Bitte geben Sie Ihren Namen ein.
+      </div>
 
-    <label for="phone">Telefonnummer</label>
-    <input type="tel" name="telefon" id="phone" />
+      <div class="label-and-input">
+        <label for="subject">Betreff</label>
+        <input type="text" name="betreff" id="subject" />
+      </div>
 
-    <textarea name="nachricht" id="message"></textarea>
+      <div class="label-and-input">
+        <label for="email">E-Mail (erforderlich)</label>
+        <input
+          aria-describedby="error"
+          id="email"
+          name="e-mail"
+          type="email"
+          required
+        />
+      </div>
 
-    <button type="reset">Zurücksetzen</button>
-    <button type="submit">Senden</button>
-  </form>
+      <div class="error" id="error">
+        Bitte geben Sie eine gültige E-Mail-Adresse ein.
+      </div>
+
+      <div class="label-and-input">
+        <label for="phone">Telefonnummer</label>
+        <input type="tel" name="telefon" id="phone" />
+      </div>
+
+      <div class="label-and-input">
+        <label for="message">Ihre Nachricht</label>
+        <textarea
+          aria-describedby="error"
+          id="message"
+          minlength="10"
+          name="nachricht"
+          required
+          spellcheck></textarea>
+      </div>
+
+      <div class="error" id="error">
+        Bitte geben Sie mindestens 10 Zeichen ein.
+      </div>
+
+      <div class="form-buttons">
+        <button type="reset">Löschen</button>
+        <button type="submit">Senden</button>
+      </div>
+    </form>
+  </div>
 </section>
 
 <style>
   section {
-    background: lightcoral;
+    background: var(--color-primary);
+    color: var(--color-light-cream-50);
+  }
+
+  h2,
+  .error {
+    color: var(--color-light-cream-50);
+    font-family: "Lexend Light", Geneva, Tahoma, sans-serif;
+  }
+
+  dl {
+    display: grid;
+    grid-gap: var(--space-l);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20ch), 1fr));
+    margin-top: var(--space-2xl);
+  }
+
+  dt {
+    color: var(--color-light-cream-50);
+  }
+
+  dd {
+    margin: 0;
+  }
+
+  .img-container {
+    background: var(--color-deep-burgundy-300);
+    border-radius: 8px;
+    padding: var(--space-m);
+  }
+
+  .img-container img {
+    margin: 0 auto;
+  }
+
+  .text-container {
+    text-align: center;
+    margin-top: var(--space-xs);
+  }
+
+  /* Form */
+
+  .container h2:nth-of-type(2) {
+    margin: var(--space-l) auto;
+    width: fit-content;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+    margin: 0 auto;
+    max-width: calc(var(--max-width) / 2);
+  }
+
+  input,
+  textarea {
+    margin-top: var(--space-xs);
+  }
+
+  input,
+  textarea {
+    background: transparent;
+    border: 2px solid var(--color-light-cream-50);
+    border-radius: 8px;
+    font-family: "Lexend Light", Geneva, Tahoma, sans-serif;
+    font-size: var(--step-1);
+  }
+
+  input,
+  textarea {
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  .label-and-input {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+    justify-content: end;
+  }
+
+  button[type="reset"],
+  button[type="submit"] {
+    border-radius: 8px;
+    padding: var(--space-2xs);
+  }
+
+  button[type="reset"] {
+    background: transparent;
+    border: 1px solid var(--color-light-cream-50);
+  }
+
+  button[type="submit"] {
+    background: var(--color-secondary-orange);
+    border: 1px solid var(--color-light-cream-50);
+  }
+
+  .error {
+    align-items: center;
+    background: red;
+    border-radius: 8px;
+    display: flex;
+    font-size: var(--step-1);
+    gap: var(--space-2xs);
+    padding: var(--space-2xs);
   }
 </style>
