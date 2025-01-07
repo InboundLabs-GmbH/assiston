@@ -1,6 +1,9 @@
 ---
 import { Image } from "astro:assets";
 
+import WorkInProgress from "@components/utils/WorkInProgress.astro";
+import ErrorMessage from "@components/utils/ErrorMessage.astro";
+
 import phone from "@images/contact/illustrations/1-phone.svg";
 import email from "@images/contact/illustrations/2-email.svg";
 import address from "@images/contact/illustrations/3-address.svg";
@@ -16,8 +19,6 @@ import hours from "@images/contact/illustrations/4-hours.svg";
       Formular oder rufen Sie uns an, um mehr über die Assistenzhilfe zu
       erfahren.
     </p>
-
-    <!-- TODO Add illustrations -->
 
     <dl>
       <div>
@@ -71,6 +72,8 @@ import hours from "@images/contact/illustrations/4-hours.svg";
 
     <h2>Kontakt&shy;formular</h2>
 
+    <WorkInProgress text="Funktionalität muss noch hinzugefügt werden!" />
+
     <form>
       <div class="label-and-input">
         <label for="full-name">Name (erforderlich)</label>
@@ -85,27 +88,7 @@ import hours from "@images/contact/illustrations/4-hours.svg";
       </div>
 
       <!-- TODO Make this a reusable component -->
-      <div class="error" id="error">
-        <svg
-          class="w-6 h-6 text-gray-800 dark:text-white"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="none"
-          viewBox="0 0 24 24"
-          focusable="false"
-        >
-          <path
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
-        </svg>
-
-        Bitte geben Sie Ihren Namen ein.
-      </div>
+      <ErrorMessage text="Bitte geben Sie Ihren Namen ein." />
 
       <div class="label-and-input">
         <label for="subject">Betreff</label>
@@ -123,9 +106,7 @@ import hours from "@images/contact/illustrations/4-hours.svg";
         />
       </div>
 
-      <div class="error" id="error">
-        Bitte geben Sie eine gültige E-Mail-Adresse ein.
-      </div>
+      <ErrorMessage text="Bitte geben Sie eine gültige E-Mail-Adresse ein." />
 
       <div class="label-and-input">
         <label for="phone">Telefonnummer</label>
@@ -143,9 +124,7 @@ import hours from "@images/contact/illustrations/4-hours.svg";
           spellcheck></textarea>
       </div>
 
-      <div class="error" id="error">
-        Bitte geben Sie mindestens 10 Zeichen ein.
-      </div>
+      <ErrorMessage text="Bitte geben Sie mindestens 10 Zeichen ein." />
 
       <div class="form-buttons">
         <button type="reset">Löschen</button>

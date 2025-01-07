@@ -1,14 +1,62 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
 export interface Props {
   heading: string;
   kicker?: string;
+  src: ImageMetadata;
 }
 
-const { heading, kicker } = Astro.props;
+const { heading, kicker, src } = Astro.props;
 ---
 
-<header>
-  <h1>{heading}</h1>
-  <p>{kicker}</p>
-  <!-- TODO Add hero image -->
-</header>
+<section aria-label="Intro">
+  <div class="text">
+    <h1>{heading}</h1>
+    {kicker ? <p>{kicker}</p> : null}
+  </div>
+  <Image alt="" src={src} />
+</section>
+
+<style>
+  section {
+    display: grid;
+    grid-template-areas: "hero";
+    height: 60vh;
+    max-height: 600px;
+    overflow: hidden;
+    place-items: center;
+  }
+
+  section > * {
+    grid-area: hero;
+  }
+
+  img {
+    object-fit: cover;
+    height: min(100vh, 600px);
+    width: 100%;
+    z-index: -1;
+  }
+
+  h1 {
+    color: var(--color-light-cream-50);
+    font-family: "Lexend Light", Geneva, Tahoma, sans-serif;
+    line-height: 1.2;
+  }
+
+  p {
+    color: var(--color-light-cream-50);
+    margin: 0;
+  }
+
+  .text {
+    background: rgb(0, 0, 0, 0.8);
+    border-radius: 8px;
+    margin: 0 var(--space-m);
+    padding: var(--space-2xs) var(--space-s);
+    text-align: center;
+    z-index: 1;
+  }
+</style>

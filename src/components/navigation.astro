@@ -1,12 +1,17 @@
 ---
+import { Image } from "astro:assets";
+
+import logoDark from "@images/logo-dark.svg";
+import logoLight from "@images/logo-light.svg";
+
 const links = [
-  { href: "/", label: "Startseite" },
+  { href: "/", label: "Startseite", logo: true },
   { href: "/persoenliches-budget", label: "Persönliches Budget" },
   { href: "/leistungen", label: "Leistungen" },
   { href: "/stellenangebote", label: "Stellenangebote" },
   { href: "/ueber-uns", label: "Über uns" },
   // { href: "/faq", label: "FAQ" },
-  { href: "/kontakt", label: "Kontakt" },
+  { href: "/kontakt", special: true, label: "Kontakt" },
 ];
 ---
 
@@ -14,13 +19,18 @@ const links = [
   <nav aria-label="Primär">
     <ul role="list">
       {
-        links.map(({ href, label }) => (
+        links.map(({ href, special, label, logo }) => (
           <li>
             <a
               href={href}
+              class={special ? "special" : null}
               aria-current={Astro.url.pathname === href ? "page" : undefined}
             >
-              {label}
+              {!logo ? (
+                label
+              ) : (
+                <Image alt="Assiston e.V. Startseite" src={logoLight} />
+              )}
             </a>
           </li>
         ))
@@ -30,12 +40,51 @@ const links = [
 </header>
 
 <style>
-  ul {
-    display: flex;
-    gap: 1rem;
-    margin: 0;
-    padding: 1rem;
+  header {
+    margin: 0 auto;
+    max-width: var(--max-width);
   }
+
+  /* Scrollbar */
+
+  ul {
+    align-items: center;
+    block-size: auto;
+    display: flex;
+    gap: var(--space-s);
+    justify-content: space-between;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: var(--space-m);
+    scrollbar-color: var(--color-primary) var(--color-light-cream-50);
+  }
+
+  ul::-webkit-scrollbar {
+    block-size: 0.5rem;
+  }
+
+  ul::-webkit-scrollbar-track {
+    background-color: var(--color-light-cream-50);
+  }
+
+  ul::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    background-image: var(--color-light-cream-50);
+  }
+
+  ul > * {
+    flex: 0 0 auto;
+  }
+
+  ul > * + * {
+    margin-inline-start: 1rem;
+  }
+
+  ul.overflowing {
+    padding-block-end: 1rem;
+  }
+
+  /* Links */
 
   a {
     text-decoration: none;
@@ -45,5 +94,20 @@ const links = [
     text-decoration-color: var(--color-secondary-orange);
     text-decoration-line: underline;
     text-decoration-thickness: 4px;
+  }
+
+  a:has(img):hover img,
+  a:has(img):focus img,
+  a:has(img):focus-visible img {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: 5px;
+  }
+
+  .special {
+    background: var(--color-secondary-orange);
+    border-radius: 8px;
+    color: var(--color-light-cream-50);
+    padding: var(--space-2xs);
+    outline-color: var(--color-secondary-orange);
   }
 </style>

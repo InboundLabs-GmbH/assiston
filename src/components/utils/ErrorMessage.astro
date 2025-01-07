@@ -1,0 +1,42 @@
+---
+export interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div id="error">
+  <svg
+    class="w-6 h-6 text-gray-800 dark:text-white"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    fill="none"
+    viewBox="0 0 24 24"
+    focusable="false"
+  >
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+  </svg>
+
+  {text}
+</div>
+
+<style>
+  div {
+    align-items: center;
+    background: red;
+    border-radius: 8px;
+    display: flex;
+    font-family: "Lexend Light", Geneva, Tahoma, sans-serif;
+    font-size: var(--step-1);
+    gap: var(--space-2xs);
+    padding: var(--space-2xs);
+  }
+</style>
