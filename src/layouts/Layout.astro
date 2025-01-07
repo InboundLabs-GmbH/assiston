@@ -1,5 +1,9 @@
 ---
-import "../styles.css";
+import "@styles/global.css";
+import "@styles/variables.css";
+import "@styles/reset.css";
+
+import { ClientRouter } from "astro:transitions";
 import Navigation from "@components/navigation.astro";
 import ContactSection from "@components/contact-section.astro";
 import Footer from "@components/footer.astro";
@@ -12,7 +16,7 @@ export interface Props {
 const { noContactSection, title } = Astro.props;
 
 const metaData = {
-  keywords: "html, css, javascript, astro, static site generator",
+  keywords: "inklusion, barrierefreiheit, teilhabe, assistenz",
   description:
     "Beratung für Menschen mit Behinderung und deren Angehörige zu den Themen Teilhabe, Wohnen, Freizeit, Assistenz und Vereine.",
   imageType: "image/png",
@@ -53,6 +57,7 @@ const socialImageURL = new URL("/seo.png", Astro.url);
     <meta name="twitter:description" content={metaData.description} />
     <meta name="twitter:image" content={socialImageURL} />
     <meta name="twitter:image:alt" content={title} />
+    <ClientRouter />
   </head>
   <body>
     <Navigation />
@@ -61,9 +66,3 @@ const socialImageURL = new URL("/seo.png", Astro.url);
     <Footer />
   </body>
 </html>
-
-<style>
-  @view-transition {
-    navigation: auto;
-  }
-</style>
