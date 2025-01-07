@@ -37,6 +37,10 @@
     --color-neutral-800: #222222;
     --color-neutral-900: #090909;
 
+    /* Terra Cotta */
+
+    --color-terra-cotta-800: #6d2308;
+
     /* Font sizes */
     --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
     --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);

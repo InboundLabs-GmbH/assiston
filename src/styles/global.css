@@ -67,7 +67,7 @@
   h5,
   h6 {
     color: var(--color-secondary-green);
-    font-family: "Lexend Medium", Geneva, Tahoma, sans-serif;
+    font-family: "Lexend Light", Geneva, Tahoma, sans-serif;
     hyphens: manual;
     line-height: 1.5;
     margin: 0;
