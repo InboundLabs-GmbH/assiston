@@ -1,14 +1,13 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import HeroSection from "@components/hero-section.astro";
 import ExternalLink from "@components/utils/ExternalLink.astro";
 ---
 
 <Layout title="Impressum - Assiston e.V.">
-  <HeroSection heading="Impressum" />
-
   <main id="main">
     <div class="container">
+      <h1>Impressum</h1>
+
       <dl>
         <div>
           <dt>Adresse:</dt>
@@ -77,6 +76,7 @@ import ExternalLink from "@components/utils/ExternalLink.astro";
       </p>
 
       <h2>Disclaimer – rechtliche Hinweise</h2>
+
       <p>
         Wir sind nicht bereit und verpflichtet, an Streitbeilegungsverfahren vor
         einer Verbraucherschlichtungsstelle teilzunehmen.
@@ -87,6 +87,7 @@ import ExternalLink from "@components/utils/ExternalLink.astro";
       </h2>
 
       <h3>§ 1 Warnhinweis zu Inhalten</h3>
+
       <p>
         Die kostenlosen und frei zugänglichen Inhalte dieser Webseite wurden mit
         größtmöglicher Sorgfalt erstellt. Der Anbieter dieser Webseite übernimmt
@@ -101,6 +102,7 @@ import ExternalLink from "@components/utils/ExternalLink.astro";
       </p>
 
       <h3>§ 2 Externe Links</h3>
+
       <p>
         Diese Website enthält Verknüpfungen zu Websites Dritter („externe
         Links“). Diese Websites unterliegen der Haftung der jeweiligen
@@ -117,6 +119,7 @@ import ExternalLink from "@components/utils/ExternalLink.astro";
       </p>
 
       <h3>§ 3 Urheber- und Leistungs&shy;schutz&shy;rechte</h3>
+
       <p>
         Die auf dieser Website veröffentlichten Inhalte unterliegen dem
         deutschen Urheber- und Leistungsschutzrecht. Jede vom deutschen Urheber-
@@ -137,6 +140,7 @@ import ExternalLink from "@components/utils/ExternalLink.astro";
       </p>
 
       <h3>§ 4 Besondere Nutzungs&shy;bedingungen</h3>
+
       <p>
         Soweit besondere Bedingungen für einzelne Nutzungen dieser Website von
         den vorgenannten Paragraphen abweichen, wird an entsprechender Stelle
@@ -159,9 +163,15 @@ import ExternalLink from "@components/utils/ExternalLink.astro";
     padding: 0 var(--space-m) var(--space-2xl) var(--space-m);
   }
 
+  h1 {
+    color: var(--color-primary);
+    text-align: center;
+  }
+
   h2,
   h3 {
     hyphens: manual;
+    margin-top: var(--space-m);
   }
 
   dl {

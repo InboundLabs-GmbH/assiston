@@ -1,7 +1,9 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import HeroSection from "@components/hero-section.astro";
+
 import { Image } from "astro:assets";
+import heroImage from "@images/hero-image-about-us.png";
 
 import dog from "@images/about-us/1-dog.jpeg";
 import group from "@images/about-us/2-group.jpeg";
@@ -13,7 +15,8 @@ import selfie from "@images/about-us/5-selfie.jpeg";
 <Layout title="Über uns - Assiston e.V.">
   <HeroSection
     heading="Wir stehen an Ihrer Seite"
-    kicker="wir verhelfen Ihnen zu einem selbstbestimmten Leben"
+    kicker="und verhelfen Ihnen zu einem selbstbestimmten Leben"
+    src={heroImage}
   />
 
   <main id="main">

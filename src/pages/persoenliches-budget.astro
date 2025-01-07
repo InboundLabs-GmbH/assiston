@@ -1,10 +1,10 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import HeroSection from "@components/hero-section.astro";
-import Navigation from "@components/navigation.astro";
-
 import ExternalLink from "@components/utils/ExternalLink.astro";
+
 import { Image } from "astro:assets";
+import heroImage from "@images/hero-image-personal-budget.png";
 
 import galleryOne from "@images/personal-budget/1-personal-budget.svg";
 import galleryTwo from "@images/personal-budget/2-personal-budget.svg";
@@ -25,10 +25,11 @@ import serviceSix from "@images/personal-budget/services/6-services.svg";
 ---
 
 <Layout title="Persönliches Budget - Assiston e.V.">
-  <!-- <HeroSection
-    heading="Das Persönliche Budget"
+  <HeroSection
+    heading="Das Persön­liche Budget"
     kicker="Was ist das Persönliche Budget und wie kann ich es erhalten?"
-  /> -->
+    src={heroImage}
+  />
 
   <main id="main">
     <section aria-label="Allgemein">

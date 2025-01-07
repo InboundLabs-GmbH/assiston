@@ -1,7 +1,9 @@
 ---
 import Layout from "@layouts/Layout.astro";
-// import HeroSection from "@components/hero-section.astro";
+import HeroSection from "@components/hero-section.astro";
+
 import { Image } from "astro:assets";
+import heroImage from "@images/hero-image-services.png";
 
 import carousel from "@images/services/1-carousel.jpeg";
 
@@ -19,7 +21,11 @@ import listItemFive from "@images/services/11-list-item.svg";
 ---
 
 <Layout title="Leistungen - Assiston e.V.">
-  <!-- <HeroSection heading="Unsere Leistungen" /> -->
+  <HeroSection
+    heading="Unsere Leistungen"
+    kicker="Kurze Beschreibung hinzufügen?"
+    src={heroImage}
+  />
 
   <main id="main">
     <section aria-label="Ablauf">
@@ -135,11 +141,11 @@ import listItemFive from "@images/services/11-list-item.svg";
 
 <style>
   /* General */
-  section[aria-label="Ablauf"],
+  /* section[aria-label="Ablauf"],
   section[aria-label="Details"],
   section[aria-label="Umsetzung"] {
-    padding: var(--space-2xl) var(--space-m);
-  }
+    padding: var(--space-m);
+  } */
 
   h2 {
     margin: 0;
@@ -232,6 +238,22 @@ import listItemFive from "@images/services/11-list-item.svg";
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-s);
+  }
+
+  section[aria-label="Details"] ul li:nth-child(2) {
+    color: var(--color-secondary-green);
+  }
+
+  section[aria-label="Details"] ul li:nth-child(3) {
+    color: var(--color-primary);
+  }
+
+  section[aria-label="Details"] ul li:nth-child(4) {
+    color: var(--color-secondary-orange);
+  }
+
+  section[aria-label="Details"] ul li:last-child {
+    color: var(--color-terra-cotta-800);
   }
 
   section[aria-label="Details"] div {
