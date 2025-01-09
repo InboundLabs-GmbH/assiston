@@ -22,58 +22,101 @@ import serviceThree from "@images/personal-budget/services/3-services.svg";
 import serviceFour from "@images/personal-budget/services/4-services.svg";
 import serviceFive from "@images/personal-budget/services/5-services.svg";
 import serviceSix from "@images/personal-budget/services/6-services.svg";
+
+const gallery = [
+  {
+    src: galleryOne,
+    title: "Men­schen mit Behinderungen",
+    description:
+      "Jeder behinderte oder von Behinderung bedrohte Mensch, egal wie schwer die Behinderung ist.",
+  },
+  {
+    src: galleryTwo,
+    title: "Unter­stützungs­bedürftige",
+    description:
+      "Menschen, die aufgrund ihrer Behinderung, das Geld nicht alleine verwalten können.",
+  },
+  {
+    src: galleryThree,
+    title: "Elternhilfe",
+    description: "Eltern für ihre behinderten Kinder.",
+  },
+];
+
+const process = [
+  {
+    src: enquiryOne,
+    title: "Beratungsgespräch",
+    description: "bei einem Kostenträger oder einer EUTB.",
+  },
+  {
+    src: enquiryTwo,
+    title: "Antragstellung",
+    description:
+      "Der erste Schritt ist, einen Antrag bei Ihrer zuständigen Sozialbehörde oder dem Träger der Eingliederungshilfe zu stellen.",
+  },
+  {
+    src: enquiryThree,
+    title: "Bedarfsfeststellung",
+    description:
+      "In der Regel wird ein Bedarfsgutachten erstellt, um festzustellen, welche Unterstützungsleistungen für Sie erforderlich sind.",
+  },
+  {
+    src: enquiryFour,
+    title: "Zielvereinbarung",
+    description:
+      "Die Zielvereinbarung muss zu Ihnen passen und Sie müssen die Ziele auch schaffen können.",
+  },
+  {
+    src: enquiryFive,
+    title: "Bewilligung und Bescheid",
+    description:
+      "Wenn Ihr Antrag genehmigt wird, erhalten Sie das Persönliche Budget, welches Sie dann nutzen können, um Ihre gewünschte Dienstleistung zu finanzieren.",
+  },
+];
+
+const services = [
+  { src: serviceOne, title: "Wohnen und Alltagsunter­stützung" },
+  { src: serviceTwo, title: "Grundpflege" },
+  { src: serviceThree, title: "Freizeit und Kultur" },
+  { src: serviceFour, title: "Urlaub" },
+  { src: serviceFive, title: "Arbeit, Ausbildung, Studium & Schule" },
+  { src: serviceSix, title: "Begleitung zu Terminen" },
+];
 ---
 
 <Layout title="Persönliches Budget - Assiston e.V.">
-  <HeroSection
+  <!-- <HeroSection
     heading="Das Persön­liche Budget"
     kicker="Was ist das Persönliche Budget und wie kann ich es erhalten?"
     src={heroImage}
-  />
+  /> -->
 
   <main id="main">
     <section aria-label="Allgemein">
       <div class="container">
-        <div class="flex">
-          <p class="highlight">
-            Ein Persönliches Budget ist eine wichtige finanzielle Unterstützung.
-          </p>
-          <p>
-            Das Persönliche Budget hilft, ein selbstbestimmtes Leben zu führen.
-            Sie können selbst entscheiden, welche Assistenzleistungen Sie
-            benötigen.
-          </p>
-        </div>
+        <p class="highlight">
+          Ein Persönliches Budget ist eine wichtige finanzielle Unterstützung.
+        </p>
+        <p>
+          Das Persönliche Budget hilft, ein selbstbestimmtes Leben zu führen.
+          Sie können selbst entscheiden, welche Assistenzleistungen Sie
+          benötigen.
+        </p>
 
-        <div class="flex">
-          <h2>Wer kann es beantragen?</h2>
+        <h2>Wer kann es beantragen?</h2>
 
-          <dl class="gallery">
-            <div>
-              <Image alt="" src={galleryOne} />
-              <dt class="highlight">Men&shy;schen mit Behinderungen</dt>
-              <dd>
-                Jeder behinderte oder von Behinderung bedrohte Mensch, egal wie
-                schwer die Behinderung ist.
-              </dd>
-            </div>
-
-            <div>
-              <Image alt="" src={galleryTwo} />
-              <dt class="highlight">Unter&shy;stützungs&shy;bedürftige</dt>
-              <dd>
-                Menschen, die aufgrund ihrer Behinderung, das Geld nicht alleine
-                verwalten können.
-              </dd>
-            </div>
-
-            <div>
-              <Image alt="" src={galleryThree} />
-              <dt class="highlight">Elternhilfe</dt>
-              <dd>Eltern für ihre behinderten Kinder.</dd>
-            </div>
-          </dl>
-        </div>
+        <dl class="gallery">
+          {
+            gallery.map(({ src, title, description }) => (
+              <div>
+                <Image alt="" src={src} />
+                <dt class="highlight">{title}</dt>
+                <dd>{description}</dd>
+              </div>
+            ))
+          }
+        </dl>
       </div>
     </section>
 
@@ -94,51 +137,23 @@ import serviceSix from "@images/personal-budget/services/6-services.svg";
         <h3>Ablauf des Verfahrens:</h3>
 
         <dl>
-          <div>
-            <Image alt="" src={enquiryOne} width={400} />
-            <dt class="highlight">Beratungsgespräch</dt>
-            <dd>bei einem Kostenträger oder einer EUTB.</dd>
-          </div>
-
-          <div>
-            <Image alt="" src={enquiryTwo} width={400} />
-            <dt class="highlight">Antragstellung</dt>
-            <dd>
-              Der erste Schritt ist, einen Antrag bei Ihrer zuständigen
-              Sozialbehörde oder dem Träger der Eingliederungshilfe zu stellen.
-            </dd>
-          </div>
-
-          <div>
-            <Image alt="" src={enquiryThree} width={400} />
-            <dt class="highlight">Bedarfsfeststellung</dt>
-            <dd>
-              In der Regel wird ein Bedarfsgutachten erstellt, um festzustellen,
-              welche Unterstützungsleistungen für Sie erforderlich sind.
-            </dd>
-          </div>
-
-          <div>
-            <Image alt="" src={enquiryFour} width={400} />
-            <dt class="highlight">Zielvereinbarung</dt>
-            <dd>
-              Die Zielvereinbarung muss zu Ihnen passen und Sie müssen die Ziele
-              auch schaffen können.
-            </dd>
-          </div>
-
-          <div>
-            <Image alt="" src={enquiryFive} width={400} />
-            <dt class="highlight">Bewilligung und Bescheid</dt>
-            <dd>
-              Wenn Ihr Antrag genehmigt wird, erhalten Sie das Persönliche
-              Budget, welches Sie dann nutzen können, um Ihre gewünschte
-              Dienstleistung zu finanzieren.
-            </dd>
-          </div>
+          {
+            process.map(({ src, title, description }, index) => (
+              <div>
+                <div class="number-and-image">
+                  <div aria-hidden="true" class="number">
+                    {index + 1}
+                  </div>
+                  <Image alt="" src={src} width={300} />
+                </div>
+                <dt class="highlight">{title}</dt>
+                <dd>{description}</dd>
+              </div>
+            ))
+          }
         </dl>
 
-        <p>
+        <p class="highlight">
           Wird das Persönliche Budget ausschließlich durch die
           Pflegeversicherung erbracht, ist keine Zielvereinbarung notwendig.
         </p>
@@ -147,45 +162,18 @@ import serviceSix from "@images/personal-budget/services/6-services.svg";
 
     <section aria-label="Leistungen">
       <div class="container">
-        <h2>Welche Leistungen sind enthalten?</h2>
-
+        <h2>Welche Leistungen sind für Sie hier enthalten?</h2>
         <ul role="list">
-          <li>
-            <div class="img-container">
-              <Image alt="" src={serviceOne} />
-            </div>
-            <p class="highlight">Wohnen und Alltagsunter&shy;stützung</p>
-          </li>
-          <li>
-            <div class="img-container">
-              <Image alt="" src={serviceTwo} />
-            </div>
-            <p class="highlight">Grundpflege</p>
-          </li>
-          <li>
-            <div class="img-container">
-              <Image alt="" src={serviceThree} />
-            </div>
-            <p class="highlight">Freizeit und Kultur</p>
-          </li>
-          <li>
-            <div class="img-container">
-              <Image alt="" src={serviceFour} />
-            </div>
-            <p class="highlight">Urlaub</p>
-          </li>
-          <li>
-            <div class="img-container">
-              <Image alt="" src={serviceFive} />
-            </div>
-            <p class="highlight">Arbeit, Ausbildung, Studium &amp; Schule</p>
-          </li>
-          <li>
-            <div class="img-container">
-              <Image alt="" src={serviceSix} />
-            </div>
-            <p class="highlight">Begleitung zu Terminen</p>
-          </li>
+          {
+            services.map(({ src, title }) => (
+              <li>
+                <div class="img-container">
+                  <Image alt="" src={src} />
+                </div>
+                <p class="highlight">{title}</p>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </section>
@@ -196,8 +184,8 @@ import serviceSix from "@images/personal-budget/services/6-services.svg";
   /* General */
 
   dd {
-    hyphens: manual;
     margin: 0;
+    max-width: 30ch;
   }
 
   /* Section 1 */
@@ -206,40 +194,19 @@ import serviceSix from "@images/personal-budget/services/6-services.svg";
     background: var(--color-light-cream-50);
   }
 
-  .wrapper {
-    padding: var(--space-2xl) 0;
-  }
-
   section[aria-label="Allgemein"] h2 {
-    margin-top: var(--space-2xl);
-  }
-
-  .flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-m);
-    justify-content: space-between;
-    margin: 0 auto;
-    max-width: 1440px;
-    padding: 0 var(--space-m);
-  }
-
-  .flex p {
-    margin: 0;
+    margin-top: var(--space-l);
   }
 
   .highlight {
+    margin: 0;
     max-width: 30ch;
-  }
-
-  .flex p:nth-child(2) {
-    max-width: 40ch;
   }
 
   .gallery {
     display: grid;
     grid-gap: var(--space-m);
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15ch), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20ch), 1fr));
     justify-items: center;
     width: 100%;
   }
@@ -257,23 +224,60 @@ import serviceSix from "@images/personal-budget/services/6-services.svg";
 
   /* Section 2 */
 
-  section[aria-label="Prozess"] {
-    margin: 0 auto;
-    max-width: 1440px;
-    padding: 0 var(--space-m);
+  section[aria-label="Prozess"] h2 {
+    margin: 0;
   }
 
-  section[aria-label="Prozess"] h2,
   section[aria-label="Prozess"] h3 {
-    margin-top: var(--space-2xl);
+    margin-top: var(--space-l);
   }
 
-  section[aria-label="Prozess"] p {
-    text-wrap: balance;
+  section[aria-label="Prozess"] dl {
+    display: grid;
+    grid-gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 25ch), 1fr));
+    justify-items: center;
   }
 
-  section[aria-label="Prozess"] dd {
-    max-width: 30ch;
+  section[aria-label="Prozess"] dl div {
+    max-width: 400px;
+  }
+
+  section[aria-label="Prozess"] dl div .highlight {
+    font-size: var(--step-2);
+    margin-bottom: var(--space-xs);
+  }
+
+  section[aria-label="Prozess"] dl div img {
+    width: 100%;
+  }
+
+  section[aria-label="Prozess"] .container p:last-child {
+    color: var(--color-neutral-900);
+    font-size: var(--step-1);
+    margin-top: var(--space-xl);
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .number-and-image {
+    border-top: 3px solid var(--color-cal-poly-green-500);
+    position: relative;
+  }
+
+  .number {
+    align-items: center;
+    background: var(--color-cal-poly-green-500);
+    color: var(--color-light-cream-50);
+    display: flex;
+    font-size: var(--step-3);
+    justify-content: center;
+    padding: var(--space-m);
+    position: absolute;
+    width: var(--step-1);
+    height: var(--step-1);
+    top: 0;
+    left: 0;
   }
 
   /* Section 3 */
@@ -300,11 +304,12 @@ import serviceSix from "@images/personal-budget/services/6-services.svg";
     display: grid;
     grid-gap: var(--space-l);
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 20ch), 1fr));
-    margin-top: var(--space-2xl);
+    margin-top: var(--space-l);
   }
 
   section[aria-label="Leistungen"] p {
-    margin-top: var(--space-xs);
+    font-size: var(--step-2);
+    margin: var(--space-xs) auto 0 auto;
     text-align: center;
   }
 </style>

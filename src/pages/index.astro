@@ -1,4 +1,6 @@
 ---
+import WorkInProgress from "@components/utils/WorkInProgress.astro";
+
 import Layout from "@layouts/Layout.astro";
 import HeroSection from "@components/hero-section.astro";
 
@@ -14,30 +16,80 @@ import enquiry from "@images/illustrations/index/1-enquiry.svg";
 import check from "@images/illustrations/index/2-check.svg";
 import goals from "@images/illustrations/index/3-goals.svg";
 import payment from "@images/illustrations/index/4-payment.svg";
+
+const gallery = [
+  { src: home, title: "Arbeit" },
+  { src: hobby, title: "Freizeit" },
+  { src: study, title: "Schule / Studium" },
+  { src: work, title: "Zuhause" },
+];
+
+const steps = [
+  {
+    src: enquiry,
+    title: "1. Antrag­stellung",
+    description:
+      "Die Antragstellung erfolgt nur bei einem Leistungsträger. s. Sozialgesetzbuch 9, Paragraph 29 (SGB IX, §29) <br /> <br /> “Auf Antrag der Leistungsberechtigten werden Leistungen zur Teilhabe durch die Leistungsform eines persönlichen Budgets ausgeführt, um den Leistungsberechtigten in eigener Verantwortung ein möglichst selbstbestimmtes Leben zu ermöglichen.” <br /> <br /> Wir unterstützen Sie bei der Antragstellung beim entsprechenden Leistungsträger.",
+  },
+  {
+    src: check,
+    title: "2. Prü­fung des An­spruchs",
+    description:
+      "Der jeweilige Leistungsträger prüft deinen Anspruch und führt eine Bedarfsermittlung durch. Dabei wird ermittelt, welche Unterstützung Sie benötigen und wie hoch das Persönliche Budget ausfällt.",
+  },
+  {
+    src: goals,
+    title: "3. Zielver­einbarung",
+    description:
+      "Dies ist die Grundlage für den Bewilligungsbescheid und muss von beiden Parteien unterschrieben werden.",
+  },
+  {
+    src: payment,
+    title: "4. Auszahl­ung des Persön­lichen Budgets",
+    description:
+      "Im besten Fall übernehmen wir direkt mit dem Kostenträger die Abrechnung, damit Sie keinen bürokratischen Aufwand haben.",
+  },
+];
+
+const team = [
+  {
+    title: "Team­koordination & Einsatz­planung",
+    description:
+      "Wir erstellen monatliche Dienst- und Backup-Pläne und berücksichtigen dabei Ihre Wünsche und die der Assistent*innen.",
+  },
+  {
+    title: "Team­sitzung",
+    description:
+      "Regelmäßige Teamtreffen stärken das Zusammengehörigkeitsgefühl und verbessern die Kommunikation.",
+  },
+  {
+    title: "Büro­kratie",
+    description:
+      "Wir übernehmen den gesamten administrativen Teil – von der Buchhaltung bis zur Lohnabrechnung",
+  },
+];
 ---
 
 <Layout title="Assiston e.V. - Startseite">
-  <HeroSection
+  <!-- <HeroSection
     heading="Herzlich Will­kommen"
     kicker="bei Assiston Assistenzhilfe"
     src={heroImage}
-  />
+  /> -->
 
   <main id="main">
-    <section aria-label="Assistenz">
-      <h2>Per&shy;sön&shy;li&shy;che As&shy;sis&shy;tenz</h2>
-
-      <div class="smol-flexbox-grid">
+    <div class="container">
+      <section aria-label="Assistenz">
         <div>
+          <h2>Persön&shy;liche Assis&shy;tenz</h2>
+
           <p>
             Wenn Sie von einem Persönlichen Budget profitieren, können Sie
-            unsere Dienste ganz einfach in Anspruch nehmen.
+            unsere Dienste ganz einfach in Anspruch nehmen:
           </p>
 
           <a href="/persoenliches-budget">Persönliches Budget</a>
-        </div>
 
-        <div>
           <p>
             Unser Assistenzdienst ist dazu da, um Ihnen das Leben unabhängiger
             und selbstbestimmter zu machen und können Ihren gesamten
@@ -52,6 +104,10 @@ import payment from "@images/illustrations/index/4-payment.svg";
         </div>
 
         <div>
+          <WorkInProgress
+            text="Habe den Text etwas angepasst, da es sich hier um eine Auflistung handelt. Beim Zweiten Punkt muss erläutert werden, mit wem kommuniziert wird."
+          />
+
           <h3>Wir bieten Hilfe an bei:</h3>
 
           <ul>
@@ -62,284 +118,159 @@ import payment from "@images/illustrations/index/4-payment.svg";
             <li>24-Stunden-Betreuung</li>
           </ul>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section aria-label="Unterstützung">
-      <h2>Be&shy;rei&shy;che der Un&shy;ter&shy;stüt&shy;zung</h2>
+      <section aria-label="Unterstützung">
+        <h2>Be&shy;rei&shy;che der Un&shy;ter&shy;stüt&shy;zung</h2>
 
-      <ul class="smol-css-grid support" role="list">
-        <li>
-          <Image alt="" src={work} />
-          <span>Arbeit</span>
-        </li>
-        <li>
-          <Image alt="" src={hobby} />
-          <span>Freizeit</span>
-        </li>
-        <li>
-          <Image alt="" src={study} />
-          <span>Schule / Studium</span>
-        </li>
-        <li>
-          <Image alt="" src={home} />
-          <span>Zuhause</span>
-        </li>
-      </ul>
+        <ul class="gallery" role="list">
+          {
+            gallery.map(({ src, title }) => (
+              <li>
+                <Image alt="" src={src} />
+                <div class="highlight">{title}</div>
+              </li>
+            ))
+          }
+        </ul>
 
-      <dl class="smol-card-grid">
-        <div class="card-wrapper">
-          <Image alt="" src={enquiry} />
-          <div class="card">
-            <dt>1. An&shy;trag&shy;stell&shy;ung</dt>
-            <dd>
-              Die Antragstellung erfolgt nur bei einem Leistungsträger. s.
-              Sozialgesetzbuch 9, Paragraph 29 (SGB IX, §29)
-            </dd>
-            <dd>
-              “Auf Antrag der Leistungsberechtigten werden Leistungen zur
-              Teilhabe durch die Leistungsform eines persönlichen Budgets
-              ausgeführt, um den Leistungsberechtigten in eigener Verantwortung
-              ein möglichst selbstbestimmtes Leben zu ermöglichen.”
-            </dd>
-            <dd>
-              Wir unterstützen Sie bei der Antragstellung beim entsprechenden
-              Leistungsträger.
-            </dd>
-          </div>
-        </div>
-
-        <div class="card-wrapper">
-          <Image alt="" src={check} />
-          <div class="card">
-            <dt>2. Prü&shy;fung des An&shy;spruchs</dt>
-            <dd>
-              Der jeweilige Leistungsträger prüft deinen Anspruch und führt eine
-              Bedarfsermittlung durch. Dabei wird ermittelt, welche
-              Unterstützung Sie benötigen und wie hoch das Persönliche Budget
-              ausfällt.
-            </dd>
-          </div>
-        </div>
-
-        <div class="card-wrapper">
-          <Image alt="" src={goals} />
-          <div class="card">
-            <dt>3. Ziel&shy;ver&shy;ein&shy;bar&shy;ung</dt>
-            <dd>
-              Dies ist die Grundlage für den Bewilligungsbescheid und muss von
-              beiden Parteien unterschrieben werden.
-            </dd>
-          </div>
-        </div>
-
-        <div class="card-wrapper">
-          <Image alt="" src={payment} />
-          <div class="card">
-            <dt>
-              4. Aus&shy;zahl&shy;ung des Per&shy;sön&shy;lich&shy;en
-              Bud&shy;gets
-            </dt>
-            <dd>
-              Im besten Fall übernehmen wir direkt mit dem Kostenträger die
-              Abrechnung, damit Sie keinen bürokratischen Aufwand haben.
-            </dd>
-          </div>
-        </div>
-      </dl>
-    </section>
-
-    <section aria-label="Team">
-      <div>
-        <h2>Dein Team</h2>
-
-        <p>
-          Nachdem der Antrag genehmigt wurde, sorgen wir für die
-          Zusammenstellung Ihres Teams. Dabei steht die Sympathie zwischen Ihnen
-          und den Assistent*innen an oberster Stelle.
-        </p>
-
-        <dl class="team-card-grid">
-          <div class="item">
-            <dt>Teamkoordination & Einsatzplanung</dt>
-            <dd>
-              Wir erstellen monatliche Dienst- und Backup-Pläne und
-              berücksichtigen dabei Ihre Wünsche und die der Assistent*innen.
-            </dd>
-          </div>
-
-          <div class="item">
-            <dt>Teamsitzung</dt>
-            <dd>
-              Regelmäßige Teamtreffen stärken das Zusammengehörigkeitsgefühl und
-              verbessern die Kommunikation.
-            </dd>
-          </div>
-
-          <div class="item">
-            <dt>Bürokratie</dt>
-            <dd>
-              Wir übernehmen den gesamten administrativen Teil – von der
-              Buchhaltung bis zur Lohnabrechnung
-            </dd>
-          </div>
+        <dl>
+          {
+            steps.map(({ src, title, description }) => (
+              <div class="card-wrapper">
+                <Image alt="" src={src} />
+                <div>
+                  <dt class="highlight">{title}</dt>
+                  <dd set:html={description} />
+                </div>
+              </div>
+            ))
+          }
         </dl>
-      </div>
-    </section>
+
+        <section aria-label="Team">
+          <h2>Dein Team</h2>
+
+          <p>
+            Nachdem der Antrag genehmigt wurde, sorgen wir für die
+            Zusammenstellung Ihres Teams. Dabei steht die Sympathie zwischen
+            Ihnen und den Assistent*innen an oberster Stelle.
+          </p>
+
+          <dl>
+            {
+              team.map(({ title, description }) => (
+                <div class="item">
+                  <dt class="highlight">{title}</dt>
+                  <dd>{description}</dd>
+                </div>
+              ))
+            }
+          </dl>
+        </section>
+      </section>
+    </div>
   </main>
+
+  <style>
+    /* General */
+
+    dl {
+      display: grid;
+      grid-gap: var(--space-m);
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr));
+    }
+
+    dd {
+      margin: 0;
+    }
+
+    /* Section 1 */
+
+    section[aria-label="Assistenz"] {
+      display: grid;
+      grid-gap: var(--space-m);
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 50ch), 1fr));
+    }
+
+    section[aria-label="Assistenz"] p:nth-of-type(1) {
+      margin-bottom: var(--space-l);
+    }
+
+    section[aria-label="Assistenz"] p:nth-of-type(2) {
+      margin-top: var(--space-l);
+    }
+
+    section[aria-label="Assistenz"] a {
+      background: var(--color-terra-cotta-500);
+      border-radius: var(--border-radius);
+      color: var(--color-light-cream-50);
+      outline-color: var(--color-terra-cotta-500);
+      padding: var(--space-2xs);
+      text-decoration: none;
+    }
+
+    /* Section 2 - Gallery */
+
+    section[aria-label="Unterstützung"] h2 {
+      margin-top: var(--space-l);
+    }
+
+    .gallery {
+      display: grid;
+      grid-gap: var(--space-m);
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 20ch), 1fr));
+      justify-items: center;
+      margin-top: var(--space-l);
+    }
+
+    .gallery li {
+      text-align: center;
+      max-width: fit-content;
+    }
+
+    .gallery .highlight {
+      font-size: var(--step-2);
+      margin-top: var(--space-s);
+    }
+
+    /* Section 2 - Steps */
+
+    section[aria-label="Unterstützung"] dl {
+      margin-top: var(--space-2xl);
+    }
+
+    .card-wrapper {
+      height: fit-content;
+    }
+
+    .card-wrapper img {
+      margin-bottom: -4rem;
+      padding: 0 var(--space-m);
+      width: 100%;
+    }
+
+    .card-wrapper div {
+      background: var(--color-light-cream-50);
+      padding: var(--space-xl) var(--space-m) var(--space-m) var(--space-m);
+    }
+
+    .card-wrapper .highlight {
+      color: var(--color-deep-burgundy-500);
+    }
+
+    .card-wrapper dd {
+      margin-top: var(--space-s);
+    }
+
+    /* Section 3 */
+
+    section[aria-label="Team"] .highlight {
+      font-size: var(--step-2);
+    }
+
+    section[aria-label="Team"] dd {
+      margin-top: var(--space-s);
+    }
+  </style>
 </Layout>
-
-<style>
-  .smol-flexbox-grid {
-    --min: 60ch;
-    --gap: var(--space-m);
-
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--gap);
-    margin-top: var(--space-m);
-  }
-
-  .smol-flexbox-grid > * {
-    flex: 1 1 var(--min);
-  }
-
-  .smol-flexbox-grid div:first-child {
-    display: flex;
-    gap: var(--space-m);
-    flex-direction: column;
-  }
-
-  .smol-css-grid {
-    --min: 18ch;
-    --gap: 1rem;
-
-    display: grid;
-    grid-gap: var(--gap);
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
-    justify-items: center;
-  }
-
-  /* TODO Make this a reusable component */
-  a {
-    border-radius: 2px;
-    color: var(--color-secondary-orange);
-    outline: 2px solid var(--color-secondary-orange);
-    padding: var(--space-2xs);
-    text-decoration: none;
-    width: fit-content;
-  }
-
-  a:hover {
-    background: var(--color-secondary-orange);
-    color: var(--color-light-cream-50);
-  }
-
-  section[aria-label="Assistenz"],
-  section[aria-label="Unterstützung"] {
-    padding: 0 var(--space-m);
-  }
-
-  section[aria-label="Assistenz"],
-  section[aria-label="Unterstützung"],
-  section[aria-label="Team"] div {
-    margin: 0 auto;
-    max-width: 1440px;
-  }
-
-  section[aria-label="Unterstützung"],
-  section[aria-label="Team"] {
-    margin-top: var(--space-xl);
-  }
-
-  ul {
-    margin-top: var(--space-m);
-  }
-
-  ul li :not(.support) {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-m);
-    margin-top: var(--space-s);
-  }
-
-  ul li span {
-    font-family: "Lexend Medium", Geneva, Tahoma, sans-serif;
-    font-size: var(--step-2);
-  }
-
-  /* Support */
-
-  .support li img {
-    margin: 0;
-  }
-
-  /* Cards */
-
-  .smol-card-grid {
-    --min: 40ch;
-    --gap: var(--space-xl);
-
-    display: grid;
-    grid-gap: var(--gap);
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
-    margin-top: var(--space-2xl);
-  }
-
-  .card-wrapper img {
-    margin-bottom: -4rem;
-    padding: 0 var(--space-xl);
-    width: 100%;
-  }
-
-  .card {
-    background: var(--color-light-cream-50);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-m);
-    padding: var(--space-xl);
-  }
-
-  dt {
-    color: var(--color-primary);
-    font-family: "Lexend Medium", Geneva, Tahoma, sans-serif;
-    font-size: var(--step-3);
-    margin-top: var(--space-m);
-  }
-
-  dd {
-    margin: 0;
-  }
-
-  /* Team section */
-
-  section[aria-label="Team"] {
-    background: var(--color-light-cream-50);
-  }
-
-  section[aria-label="Team"] div {
-    padding: var(--space-2xl) var(--space-m);
-  }
-
-  section[aria-label="Team"] div dt {
-    color: var(--color-secondary-green);
-  }
-
-  section[aria-label="Team"] div dd {
-    margin-top: var(--space-xs);
-  }
-
-  .team-card-grid {
-    --min: 25ch;
-    --gap: var(--space-xl);
-
-    display: grid;
-    grid-gap: var(--gap);
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
-  }
-
-  .team-card-grid .item {
-    padding: 0;
-  }
-</style>

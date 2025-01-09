@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import HeroSection from "@components/hero-section.astro";
+// import HeroSection from "@components/hero-section.astro";
 
 import { Image } from "astro:assets";
 import heroImage from "@images/hero-image-services.png";
@@ -18,14 +18,49 @@ import listItemTwo from "@images/services/8-list-item.svg";
 import listItemThree from "@images/services/9-list-item.svg";
 import listItemFour from "@images/services/10-list-item.svg";
 import listItemFive from "@images/services/11-list-item.svg";
+
+const services = [
+  {
+    src: serviceOne,
+    title: "1. Erstgespräch",
+    description:
+      "Dabei besprechen wir Ihre Wünsche und helfen Ihnen bei der Antragstellung, falls Sie noch keinen gestellt haben.",
+  },
+  {
+    src: serviceTwo,
+    title: "2. Team finden",
+    description:
+      "Nachdem Ihr Antrag genehmigt wurde, kümmern wir uns in Absprache mit Ihnen um die Zusammenstellung eines Assistenzteams.",
+  },
+  {
+    src: serviceThree,
+    title: "3. Team­koordination und Team­sitzungen",
+    description:
+      "Wir helfen bei der Organisation und Koordination der Teams und legen Wert auf regelmäßige Teamsitzungen.",
+  },
+  {
+    src: serviceFour,
+    title: "4. Personal­verwaltung und Ab­rechnung",
+    description:
+      "Wir übernehmen komplett alle administrativen Aufgaben für Sie.",
+  },
+];
+
+const listItems = [
+  { src: listItemOne, title: "Eigener Dienstplan" },
+  { src: listItemTwo, title: "Individuelle Dienstzeiten" },
+  { src: listItemThree, title: "Festes Team" },
+  { src: listItemFour, title: "Verwaltungsaufgaben" },
+  { src: listItemFive, title: "Hilfe bei Antragstellung" },
+];
 ---
 
 <Layout title="Leistungen - Assiston e.V.">
-  <HeroSection
+  <!-- <HeroSection
     heading="Unsere Leistungen"
     kicker="Kurze Beschreibung hinzufügen?"
     src={heroImage}
-  />
+  /> -->
 
   <main id="main">
     <section aria-label="Ablauf">
@@ -43,52 +78,17 @@ import listItemFive from "@images/services/11-list-item.svg";
         </div>
 
         <dl>
-          <div class="process-container">
-            <Image alt="" src={serviceOne} />
-            <div class="details-text">
-              <dt class="highlight">1. Erstgespräch</dt>
-              <dd>
-                Dabei besprechen wir Ihre Wünsche und helfen Ihnen bei der
-                Antragstellung, falls Sie noch keinen gestellt haben.
-              </dd>
-            </div>
-          </div>
-
-          <div class="process-container">
-            <Image alt="" src={serviceTwo} />
-            <div class="details-text">
-              <dt class="highlight">2. Team finden</dt>
-              <dd>
-                Nachdem Ihr Antrag genehmigt wurde, kümmern wir uns in Absprache
-                mit Ihnen um die Zusammenstellung eines Assistenzteams.
-              </dd>
-            </div>
-          </div>
-
-          <div class="process-container">
-            <Image alt="" src={serviceThree} />
-            <div class="details-text">
-              <dt class="highlight">
-                3. Team&shy;koordination und Team&shy;sitzungen
-              </dt>
-              <dd>
-                Wir helfen bei der Organisation und Koordination der Teams und
-                legen Wert auf regelmäßige Teamsitzungen.
-              </dd>
-            </div>
-          </div>
-
-          <div class="process-container">
-            <Image alt="" src={serviceFour} />
-            <div class="details-text">
-              <dt class="highlight">
-                4. Personal&shy;verwaltung und Abrechnung
-              </dt>
-              <dd>
-                Wir übernehmen komplett alle administrativen Aufgaben für Sie.
-              </dd>
-            </div>
-          </div>
+          {
+            services.map(({ src, title, description }) => (
+              <div class="process-container">
+                <Image alt="" src={src} width={300} />
+                <div class="details-text">
+                  <dt class="highlight">{title}</dt>
+                  <dd>{description}</dd>
+                </div>
+              </div>
+            ))
+          }
         </dl>
       </div>
     </section>
@@ -99,14 +99,14 @@ import listItemFive from "@images/services/11-list-item.svg";
 
         <div>
           <ul role="list">
-            <li>
-              <Image alt="" src={listItemOne} />
-              Eigener Dienstplan
-            </li>
-            <li><Image alt="" src={listItemTwo} />Individuelle Dienstzeiten</li>
-            <li><Image alt="" src={listItemThree} />Festes Team</li>
-            <li><Image alt="" src={listItemFour} />Verwaltungsaufgaben</li>
-            <li><Image alt="" src={listItemFive} />Hilfe bei Antragstellung</li>
+            {
+              listItems.map(({ src, title }) => (
+                <li>
+                  <Image alt="" src={src} />
+                  {title}
+                </li>
+              ))
+            }
           </ul>
 
           <Image alt="" src={diagram} />
@@ -141,15 +141,6 @@ import listItemFive from "@images/services/11-list-item.svg";
 
 <style>
   /* General */
-  /* section[aria-label="Ablauf"],
-  section[aria-label="Details"],
-  section[aria-label="Umsetzung"] {
-    padding: var(--space-m);
-  } */
-
-  h2 {
-    margin: 0;
-  }
 
   .container,
   dl {
@@ -157,12 +148,8 @@ import listItemFive from "@images/services/11-list-item.svg";
     max-width: var(--max-width);
   }
 
-  dt {
-    hyphens: manual;
-  }
-
   dd {
-    margin: 0;
+    margin: var(--space-xs) 0 0 0;
   }
 
   /* Section 1 */
@@ -205,7 +192,6 @@ import listItemFive from "@images/services/11-list-item.svg";
     background: var(--color-neutral-50);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     padding: var(--space-l);
     max-width: 50ch;
   }
@@ -213,7 +199,8 @@ import listItemFive from "@images/services/11-list-item.svg";
   .process-container {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-m);
+    gap: var(--space-xs);
+    justify-content: center;
   }
 
   .process-container:nth-child(even) {
@@ -235,9 +222,10 @@ import listItemFive from "@images/services/11-list-item.svg";
   }
 
   section[aria-label="Details"] ul li {
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-s);
+    gap: var(--space-xs);
   }
 
   section[aria-label="Details"] ul li:nth-child(2) {
