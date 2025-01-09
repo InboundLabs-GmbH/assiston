@@ -1,0 +1,21 @@
+@layer reset, variables, global, custom;
+
+@layer custom {
+  .container {
+    margin: 0 auto;
+    max-width: var(--max-width);
+    padding: var(--space-2xl) var(--space-m);
+    width: fit-content;
+  }
+
+  .highlight {
+    color: var(--color-secondary-green);
+    font-family: "Lexend Medium", Geneva, Tahoma, sans-serif;
+    font-size: var(--step-3);
+  }
+
+  .image {
+    border-radius: 8px;
+    height: auto;
+  }
+}

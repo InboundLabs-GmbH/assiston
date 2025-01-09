@@ -1,8 +1,21 @@
-@layer reset, variables, global;
+@layer reset, variables, global, custom;
 
 @layer variables {
   :root {
     color-scheme: light dark;
+
+    /* Cal Poly Green */
+
+    --color-cal-poly-green-50: #e9ece9;
+    --color-cal-poly-green-100: #bcc4bc;
+    --color-cal-poly-green-200: #9ba79c;
+    --color-cal-poly-green-300: #6e7f6e;
+    --color-cal-poly-green-400: #516652;
+    --color-cal-poly-green-500: #264027;
+    --color-cal-poly-green-600: #233a23;
+    --color-cal-poly-green-700: #1b2d1c;
+    --color-cal-poly-green-800: #152315;
+    --color-cal-poly-green-900: #101b10;
 
     /* Colors */
     --color-primary: #67003c;
@@ -39,17 +52,26 @@
 
     /* Terra Cotta */
 
+    --color-terra-cotta-50: #f9ece7;
+    --color-terra-cotta-100: #eec4b5;
+    --color-terra-cotta-200: #e5a791;
+    --color-terra-cotta-300: #d97f5e;
+    --color-terra-cotta-400: #d2663f;
+    --color-terra-cotta-500: #c7400f;
+    --color-terra-cotta-600: #b53a0e;
+    --color-terra-cotta-700: #8d2d0b;
     --color-terra-cotta-800: #6d2308;
+    --color-terra-cotta-900: #541b06;
 
     /* Font sizes */
-    --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
-    --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
-    --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
-    --step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
-    --step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
-    --step-3: clamp(1.9438rem, 1.7707rem + 0.8652vw, 2.4413rem);
-    --step-4: clamp(2.3325rem, 2.0823rem + 1.2511vw, 3.0519rem);
-    --step-5: clamp(2.7994rem, 2.4461rem + 1.7663vw, 3.815rem);
+    --step--2: clamp(0.6944rem, 0.6577rem + 0.1836vw, 0.8rem);
+    --step--1: clamp(0.8333rem, 0.7754rem + 0.2899vw, 1rem);
+    --step-0: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
+    --step-1: clamp(1.2rem, 1.0739rem + 0.6304vw, 1.5625rem);
+    --step-2: clamp(1.44rem, 1.2615rem + 0.8924vw, 1.9531rem);
+    --step-3: clamp(1.728rem, 1.4799rem + 1.2407vw, 2.4414rem);
+    --step-4: clamp(2.0736rem, 1.7334rem + 1.7011vw, 3.0518rem);
+    --step-5: clamp(2.4883rem, 2.027rem + 2.3067vw, 3.8147rem);
 
     /* Spacing */
     --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
@@ -63,6 +85,7 @@
     --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
 
     /* Other */
+    --border-radius: 8px;
     --max-width: 1440px;
   }
 }
