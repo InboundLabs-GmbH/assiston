@@ -8,11 +8,33 @@ import phone from "@images/contact/illustrations/1-phone.svg";
 import email from "@images/contact/illustrations/2-email.svg";
 import address from "@images/contact/illustrations/3-address.svg";
 import hours from "@images/contact/illustrations/4-hours.svg";
+
+const items = [
+  {
+    src: phone,
+    title: "Telefon",
+    description: `<a href="tel:+4922129297380">+49 221 29 29 73 80</a>`,
+  },
+  {
+    src: email,
+    title: "E-Mail",
+    description: `<a href="mailto:info@deinassistenzdienst.de">info@deinassistenzdienst.de</a>`,
+  },
+  {
+    src: address,
+    title: "Anschrift",
+    description:
+      "Dein Assistenzdienst GmbH <br /> Robert-Perthel-Straße 79 <br /> 50739 Köln",
+  },
+  { src: hours, title: "Öffnungs­zeiten", description: "9 Uhr bis 17 Uhr" },
+];
+
+// TODO Add form validation!
 ---
 
 <section aria-label="Kontakt">
   <div class="container">
-    <h2>Kontaktiere uns</h2>
+    <h2>Kontaktieren Sie uns</h2>
 
     <p>
       Haben wir Ihr Interesse geweckt? Dann kontaktieren Sie uns über das
@@ -21,53 +43,19 @@ import hours from "@images/contact/illustrations/4-hours.svg";
     </p>
 
     <dl>
-      <div>
-        <div class="img-container">
-          <Image alt="" src={phone} />
-        </div>
-        <div class="text-container">
-          <dt class="highlight">Telefon</dt>
-          <dd>
-            <a href="tel:+4922129297380">+49 221 29 29 73 80</a>
-          </dd>
-        </div>
-      </div>
-
-      <div>
-        <div class="img-container">
-          <Image alt="" src={email} />
-        </div>
-        <div class="text-container">
-          <dt class="highlight">E-Mail</dt>
-          <dd>
-            <a href="mailto:info@deinassistenzdienst.de">
-              info@deinassistenzdienst.de
-            </a>
-          </dd>
-        </div>
-      </div>
-
-      <div>
-        <div class="img-container">
-          <Image alt="" src={address} />
-        </div>
-        <div class="text-container">
-          <dt class="highlight">Anschrift</dt>
-          <dd>Dein Assistenzdienst GmbH</dd>
-          <dd>Robert-Perthel-Straße 79</dd>
-          <dd>50739 Köln</dd>
-        </div>
-      </div>
-
-      <div>
-        <div class="img-container">
-          <Image alt="" src={hours} />
-        </div>
-        <div class="text-container">
-          <dt class="highlight">Öffnungs&shy;zeiten</dt>
-          <dd>9 Uhr bis 17 Uhr</dd>
-        </div>
-      </div>
+      {
+        items.map(({ src, title, description }) => (
+          <div>
+            <div class="img-container">
+              <Image alt="" src={src} />
+            </div>
+            <div class="text-container">
+              <dt class="highlight">{title}</dt>
+              <dd set:html={description} />
+            </div>
+          </div>
+        ))
+      }
     </dl>
 
     <h2>Kontakt&shy;formular</h2>
@@ -78,8 +66,7 @@ import hours from "@images/contact/illustrations/4-hours.svg";
       <div class="label-and-input">
         <label for="full-name">Name (erforderlich)</label>
         <input
-          aria-describedby="error"
-          aria-invalid="true"
+          aria-describedby="error-name"
           id="full-name"
           name="name"
           required
@@ -87,8 +74,7 @@ import hours from "@images/contact/illustrations/4-hours.svg";
         />
       </div>
 
-      <!-- TODO Make this a reusable component -->
-      <ErrorMessage text="Bitte geben Sie Ihren Namen ein." />
+      <ErrorMessage id="error-name" text="Bitte geben Sie Ihren Namen ein." />
 
       <div class="label-and-input">
         <label for="subject">Betreff</label>
@@ -98,7 +84,7 @@ import hours from "@images/contact/illustrations/4-hours.svg";
       <div class="label-and-input">
         <label for="email">E-Mail (erforderlich)</label>
         <input
-          aria-describedby="error"
+          aria-describedby="error-email"
           id="email"
           name="e-mail"
           type="email"
@@ -106,7 +92,10 @@ import hours from "@images/contact/illustrations/4-hours.svg";
         />
       </div>
 
-      <ErrorMessage text="Bitte geben Sie eine gültige E-Mail-Adresse ein." />
+      <ErrorMessage
+        id="error-email"
+        text="Bitte geben Sie eine gültige E-Mail-Adresse ein."
+      />
 
       <div class="label-and-input">
         <label for="phone">Telefonnummer</label>
@@ -116,7 +105,7 @@ import hours from "@images/contact/illustrations/4-hours.svg";
       <div class="label-and-input">
         <label for="message">Ihre Nachricht</label>
         <textarea
-          aria-describedby="error"
+          aria-describedby="error-message"
           id="message"
           minlength="10"
           name="nachricht"
@@ -124,7 +113,10 @@ import hours from "@images/contact/illustrations/4-hours.svg";
           spellcheck></textarea>
       </div>
 
-      <ErrorMessage text="Bitte geben Sie mindestens 10 Zeichen ein." />
+      <ErrorMessage
+        id="error-message"
+        text="Bitte geben Sie mindestens 10 Zeichen ein."
+      />
 
       <div class="form-buttons">
         <button type="reset">Löschen</button>
@@ -136,11 +128,12 @@ import hours from "@images/contact/illustrations/4-hours.svg";
 
 <style>
   section {
-    background: var(--color-primary);
+    background: var(--color-deep-burgundy-500);
     color: var(--color-light-cream-50);
   }
 
   h2,
+  dt,
   .error {
     color: var(--color-light-cream-50);
     font-family: "Lexend Light", Geneva, Tahoma, sans-serif;
@@ -151,10 +144,6 @@ import hours from "@images/contact/illustrations/4-hours.svg";
     grid-gap: var(--space-l);
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 20ch), 1fr));
     margin-top: var(--space-2xl);
-  }
-
-  dt {
-    color: var(--color-light-cream-50);
   }
 
   dd {
@@ -239,15 +228,5 @@ import hours from "@images/contact/illustrations/4-hours.svg";
   button[type="submit"] {
     background: var(--color-secondary-orange);
     border: 1px solid var(--color-light-cream-50);
-  }
-
-  .error {
-    align-items: center;
-    background: red;
-    border-radius: 8px;
-    display: flex;
-    font-size: var(--step-1);
-    gap: var(--space-2xs);
-    padding: var(--space-2xs);
   }
 </style>

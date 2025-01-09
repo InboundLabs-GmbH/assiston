@@ -1,12 +1,13 @@
 ---
 export interface Props {
+  id: string;
   text: string;
 }
 
-const { text } = Astro.props;
+const { id, text } = Astro.props;
 ---
 
-<div id="error">
+<div id={id}>
   <svg
     class="w-6 h-6 text-gray-800 dark:text-white"
     aria-hidden="true"
@@ -31,9 +32,10 @@ const { text } = Astro.props;
 <style>
   div {
     align-items: center;
-    background: red;
+    background: var(--color-neutral-50);
     border-radius: 8px;
     display: flex;
+    color: var(--color-neutral-900);
     font-family: "Lexend Light", Geneva, Tahoma, sans-serif;
     font-size: var(--step-1);
     gap: var(--space-2xs);

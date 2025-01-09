@@ -10,7 +10,7 @@ const links = [
   { href: "/leistungen", label: "Leistungen" },
   { href: "/stellenangebote", label: "Stellenangebote" },
   { href: "/ueber-uns", label: "Über uns" },
-  // { href: "/faq", label: "FAQ" },
+  { href: "/faq", label: "FAQ" },
   { href: "/kontakt", special: true, label: "Kontakt" },
 ];
 ---
@@ -22,14 +22,18 @@ const links = [
         links.map(({ href, special, label, logo }) => (
           <li>
             <a
-              href={href}
-              class={special ? "special" : null}
               aria-current={Astro.url.pathname === href ? "page" : undefined}
+              class={special ? "special" : null}
+              href={href}
             >
               {!logo ? (
                 label
               ) : (
-                <Image alt="Assiston e.V. Startseite" src={logoLight} />
+                <Image
+                  alt="Assiston e.V. Startseite"
+                  src={logoLight}
+                  width={150}
+                />
               )}
             </a>
           </li>
@@ -51,11 +55,11 @@ const links = [
     align-items: center;
     block-size: auto;
     display: flex;
-    gap: var(--space-s);
-    justify-content: space-between;
+    gap: var(--space-xs);
+    /* justify-content: space-between; */
     overflow-x: auto;
     overflow-y: hidden;
-    padding: var(--space-m);
+    padding: var(--space-s) var(--space-2xs);
     scrollbar-color: var(--color-primary) var(--color-light-cream-50);
   }
 
