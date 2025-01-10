@@ -17,24 +17,6 @@
     src: url("/fonts/Lexend-Medium.ttf") format("truetype");
   }
 
-  /* ! Might delete, currently not in use */
-  /* @font-face {
-    font-display: swap;
-    font-family: "Lexend Bold";
-    font-style: normal;
-    font-weight: 700;
-    src: url("/fonts/Lexend-Bold.ttf") format("truetype");
-  } */
-
-  /* ! Might delete, currently not in use */
-  /* @font-face {
-    font-display: swap;
-    font-family: "Lexend Black";
-    font-style: normal;
-    font-weight: 900;
-    src: url("/fonts/Lexend-Black.ttf") format("truetype");
-  } */
-
   /* General */
 
   html {
@@ -48,7 +30,7 @@
   h4,
   h5,
   h6 {
-    color: var(--color-secondary-green);
+    color: var(--color-cal-poly-green-500);
     font-family: "Lexend Medium", Geneva, Tahoma, sans-serif;
     hyphens: manual;
     line-height: 1.5;

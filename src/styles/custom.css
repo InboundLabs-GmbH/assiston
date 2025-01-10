@@ -9,7 +9,7 @@
   }
 
   .highlight {
-    color: var(--color-secondary-green);
+    color: var(--color-cal-poly-green-500);
     font-family: "Lexend Medium", Geneva, Tahoma, sans-serif;
     font-size: var(--step-3);
   }

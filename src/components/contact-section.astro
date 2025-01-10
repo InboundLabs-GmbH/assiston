@@ -1,8 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-import WorkInProgress from "@components/utils/WorkInProgress.astro";
-import ErrorMessage from "@components/utils/ErrorMessage.astro";
+// import ErrorMessage from "@components/utils/ErrorMessage.astro";
 
 import phone from "@images/contact/illustrations/1-phone.svg";
 import email from "@images/contact/illustrations/2-email.svg";
@@ -28,8 +27,6 @@ const items = [
   },
   { src: hours, title: "Öffnungs­zeiten", description: "9 Uhr bis 17 Uhr" },
 ];
-
-// TODO Add form validation!
 ---
 
 <section aria-label="Kontakt">
@@ -58,7 +55,9 @@ const items = [
       }
     </dl>
 
-    <h2>Kontakt&shy;formular</h2>
+    <!-- TODO Add it after official launch? -->
+
+    <!-- <h2>Kontakt&shy;formular</h2>
 
     <WorkInProgress text="Funktionalität muss noch hinzugefügt werden!" />
 
@@ -122,7 +121,7 @@ const items = [
         <button type="reset">Löschen</button>
         <button type="submit">Senden</button>
       </div>
-    </form>
+    </form> -->
   </div>
 </section>
 
@@ -226,7 +225,7 @@ const items = [
   }
 
   button[type="submit"] {
-    background: var(--color-secondary-orange);
+    background: var(--color-terra-cotta-500);
     border: 1px solid var(--color-light-cream-50);
   }
 </style>
