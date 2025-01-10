@@ -13,7 +13,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/netlify": "^6.0.1",
-    "@storyblok/astro": "^5.0.1",
+    "@storyblok/astro": "^5.1.2",
     "@storyblok/richtext": "^2.0.0",
     "astro": "^5.1.1",
     "typescript": "^5.2.2",
