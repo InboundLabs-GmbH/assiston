@@ -1,7 +1,8 @@
 ---
 import { Image } from "astro:assets";
 
-import logoDark from "@images/logo-dark.svg";
+// TODO Switch out logo depending on theme
+// import logoDark from "@images/logo-dark.svg";
 import logoLight from "@images/logo-light.svg";
 
 const links = [
@@ -13,6 +14,10 @@ const links = [
   { href: "/faq", label: "FAQ" },
   { href: "/kontakt", special: true, label: "Kontakt" },
 ];
+
+const currentUrl = import.meta.env.DEV
+  ? Astro.url.pathname
+  : Astro.url.pathname.split("/")[1];
 ---
 
 <header>
@@ -22,7 +27,7 @@ const links = [
         links.map(({ href, special, label, logo }) => (
           <li>
             <a
-              aria-current={Astro.url.pathname === href ? "page" : undefined}
+              aria-current={currentUrl === href ? "page" : null}
               class={special ? "special" : null}
               href={href}
             >
@@ -56,7 +61,6 @@ const links = [
     block-size: auto;
     display: flex;
     gap: var(--space-xs);
-    /* justify-content: space-between; */
     overflow-x: auto;
     overflow-y: hidden;
     padding: var(--space-s) var(--space-2xs);
