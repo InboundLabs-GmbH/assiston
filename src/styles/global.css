@@ -19,6 +19,11 @@
 
   /* General */
 
+  ::selection {
+    color: var(--color-neutral-50);
+    background: var(--color-deep-burgundy-500);
+  }
+
   html {
     background: var(--color-light-cream-100);
     color: var(--color-neutral-900);
