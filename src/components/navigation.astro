@@ -15,9 +15,9 @@ const links = [
   { href: "/kontakt", special: true, label: "Kontakt" },
 ];
 
-// const currentUrl = import.meta.env.DEV
-//   ? Astro.url.pathname
-//   : Astro.url.pathname.split("/")[1];
+const { href } = Astro.props;
+const { pathname } = Astro.url;
+const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 ---
 
 <header>
@@ -27,7 +27,7 @@ const links = [
         links.map(({ href, special, label, logo }) => (
           <li>
             <a
-              aria-current={Astro.url.pathname === href ? "page" : null}
+              aria-current={isActive ? "page" : null}
               class={special ? "special" : null}
               href={href}
             >
