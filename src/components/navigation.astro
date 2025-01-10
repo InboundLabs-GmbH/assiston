@@ -14,10 +14,6 @@ const links = [
   { href: "/faq", label: "FAQ" },
   { href: "/kontakt", special: true, label: "Kontakt" },
 ];
-
-const { href } = Astro.props;
-const { pathname } = Astro.url;
-const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 ---
 
 <header>
@@ -27,9 +23,13 @@ const isActive = href === pathname || href === pathname.replace(/\/$/, "");
         links.map(({ href, special, label, logo }) => (
           <li>
             <a
-              aria-current={isActive ? "page" : null}
               class={special ? "special" : null}
               href={href}
+              aria-current={
+                Astro.url.pathname === href || Astro.url.pathname === `${href}/`
+                  ? "page"
+                  : undefined
+              }
             >
               {!logo ? (
                 label
