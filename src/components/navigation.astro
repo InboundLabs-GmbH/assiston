@@ -104,6 +104,11 @@ const links = [
     text-decoration-thickness: 4px;
   }
 
+  a[aria-current="page"]:is(.special) {
+    background: var(--color-light-cream-50);
+    color: var(--color-terra-cotta-500);
+  }
+
   a:has(img):hover img,
   a:has(img):focus img,
   a:has(img):focus-visible img {
