@@ -18,7 +18,7 @@ export default defineConfig({
   //     },
   //   }),
   // ],
-  site: "https://www.assiston.netlify.app/",
+  site: "https://assiston.netlify.app/",
   // vite: {
   //   plugins: [basicSsl()],
   //   server: {
