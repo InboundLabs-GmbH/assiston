@@ -1,8 +1,13 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import HeroSection from "@components/hero-section.astro";
+
+import heroImage from "@images/hero-image-faq.png";
 ---
 
 <Layout title="FAQ (Häufig gestellte Fragen) - Assiston e.V.">
+  <HeroSection heading="FAQ" kicker="Häufig gestellte Fragen" src={heroImage} />
+
   <main id="main">
     <div class="container">
       <h1>FAQ (Häufig gestellte Fragen)</h1>

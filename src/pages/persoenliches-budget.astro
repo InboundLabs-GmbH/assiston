@@ -28,13 +28,13 @@ const gallery = [
     src: galleryOne,
     title: "Men­schen mit Behinderungen",
     description:
-      "Jeder behinderte oder von Behinderung bedrohte Mensch, egal wie schwer die Behinderung ist.",
+      "Jede Person mit Behinderung oder von Behinderung bedrohte Person, egal wie schwer die Behinderung ist.",
   },
   {
     src: galleryTwo,
     title: "Unter­stützungs­bedürftige",
     description:
-      "Menschen, die aufgrund ihrer Behinderung, das Geld nicht alleine verwalten können.",
+      "Menschen, die aufgrund ihrer Behinderung das Geld nicht alleine verwalten können.",
   },
   {
     src: galleryThree,
@@ -86,11 +86,11 @@ const services = [
 ---
 
 <Layout title="Persönliches Budget - Assiston e.V.">
-  <!-- <HeroSection
+  <HeroSection
     heading="Das Persön­liche Budget"
     kicker="Was ist das Persönliche Budget und wie kann ich es erhalten?"
     src={heroImage}
-  /> -->
+  />
 
   <main id="main">
     <section aria-label="Allgemein">
@@ -237,6 +237,10 @@ const services = [
     grid-gap: var(--space-xl);
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 25ch), 1fr));
     justify-items: center;
+  }
+
+  section[aria-label="Prozess"] dl dt {
+    margin-top: var(--space-m);
   }
 
   section[aria-label="Prozess"] dl div {

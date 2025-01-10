@@ -1,6 +1,6 @@
 ---
 import Layout from "@layouts/Layout.astro";
-// import HeroSection from "@components/hero-section.astro";
+import HeroSection from "@components/hero-section.astro";
 
 import { Image } from "astro:assets";
 import heroImage from "@images/hero-image-services.png";
@@ -56,11 +56,11 @@ const listItems = [
 ---
 
 <Layout title="Leistungen - Assiston e.V.">
-  <!-- <HeroSection
+  <HeroSection
     heading="Unsere Leistungen"
     kicker="Kurze Beschreibung hinzufügen?"
     src={heroImage}
-  /> -->
+  />
 
   <main id="main">
     <section aria-label="Ablauf">
@@ -69,8 +69,8 @@ const listItems = [
           <div class="intro-text">
             <h2>Sie haben sich für eine persönliche Assistenz entschieden.</h2>
             <p>
-              Jetzt helfen wir Ihnen dabei ein rundum-sorglos-Paket zur
-              Verfügung zu stellen, so dass Sie sich auf ein selbstbestimmtes
+              Jetzt helfen wir Ihnen dabei, ein Rundum-Sorglos-Paket zur
+              Verfügung zu stellen, damit Sie sich auf ein selbstbestimmtes
               Leben konzentrieren können.
             </p>
           </div>
@@ -128,7 +128,7 @@ const listItems = [
               unterschiedlichsten Bedürfnissen eingehen zu dürfen.
             </p>
             <p>
-              So weit es geht, versuchen wir, Dienstpläne, Kommunikation und
+              So weit es geht, versuchen wir Dienstpläne, Kommunikation und
               andere Themen so zu gestalten, dass ein optimales Arbeitsumfeld
               für Sie entsteht.
             </p>
@@ -197,6 +197,7 @@ const listItems = [
   }
 
   .process-container {
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-xs);
