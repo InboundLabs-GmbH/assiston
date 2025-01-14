@@ -34,5 +34,9 @@ export default defineConfig({
       https: true,
     },
   },
+  output: "server",
   adapter: netlify(),
+  image: {
+    domains: ["https://www.storyblok.com/"],
+  },
 });
