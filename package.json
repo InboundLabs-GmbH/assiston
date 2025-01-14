@@ -16,6 +16,7 @@
     "@storyblok/astro": "^5.1.2",
     "@storyblok/richtext": "^2.0.0",
     "astro": "^5.1.1",
+    "storyblok-rich-text-astro-renderer": "^2.3.0",
     "typescript": "^5.2.2",
     "vite": "^5.4.2"
   },
