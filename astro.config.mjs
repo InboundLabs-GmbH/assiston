@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import storyblok from "@storyblok/astro";
 import { loadEnv } from "vite";
 import basicSsl from "@vitejs/plugin-basic-ssl";
-// import netlify from "@astrojs/netlify";
+import netlify from "@astrojs/netlify";
 const env = loadEnv("", process.cwd(), "STORYBLOK");
 
 // https://astro.build/config
@@ -34,6 +34,6 @@ export default defineConfig({
       https: true,
     },
   },
-  // output: "server",
-  // adapter: netlify(),
+  output: "server",
+  adapter: netlify(),
 });
