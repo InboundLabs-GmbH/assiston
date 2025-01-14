@@ -1,0 +1,55 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import { Image } from "astro:assets";
+
+const { blok } = Astro.props;
+---
+
+<section aria-label="Intro" {...storyblokEditable(blok)}>
+  <div class="text">
+    <h1>{blok.headline}</h1>
+    {blok.subheadline ? <p>{blok.subheadline}</p> : null}
+  </div>
+  <Image alt="" height={816} src={blok.image.filename} width={1456} />
+</section>
+
+<style>
+  section {
+    display: grid;
+    grid-template-areas: "hero";
+    max-height: 600px;
+    overflow: hidden;
+    place-items: center;
+  }
+
+  section > * {
+    grid-area: hero;
+  }
+
+  img {
+    object-fit: cover;
+    height: min(100vh, 600px);
+    width: 100%;
+    z-index: -1;
+  }
+
+  h1 {
+    color: var(--color-light-cream-50);
+    font-family: "Lexend Light", Geneva, Tahoma, sans-serif;
+    line-height: 1.2;
+  }
+
+  p {
+    color: var(--color-light-cream-50);
+    margin: 0;
+  }
+
+  .text {
+    background: rgb(0, 0, 0, 0.8);
+    border-radius: 8px;
+    margin: 0 var(--space-m);
+    padding: var(--space-2xs) var(--space-s);
+    text-align: center;
+    z-index: 1;
+  }
+</style>

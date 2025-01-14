@@ -1,0 +1,21 @@
+---
+import { storyblokEditable, renderRichText } from "@storyblok/astro";
+
+const { blok } = Astro.props;
+const content = renderRichText(blok.description);
+---
+
+<div {...storyblokEditable(blok)}>
+  <dt class="highlight">{blok.title}</dt>
+  <dd set:html={content} />
+</div>
+
+<style>
+  dd {
+    margin: 0;
+  }
+
+  .highlight {
+    color: var(--color-deep-burgundy-500);
+  }
+</style>

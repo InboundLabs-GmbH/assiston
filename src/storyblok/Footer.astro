@@ -1,0 +1,136 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+
+import { Image } from "astro:assets";
+
+import logoAktionMensch from "@images/footer/logo-aktion-mensch.svg";
+import logoAssiston from "@images/logo-dark.svg";
+import logoFacebook from "@images/footer/logo-facebook.svg";
+import logoInstagram from "@images/footer/logo-instagram.svg";
+
+const { blok } = Astro.props;
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer {...storyblokEditable(blok)}>
+  <div class="container">
+    <div class="flex">
+      <a href="/">
+        <Image alt="Assiston e.V. Startseite" src={logoAssiston} />
+      </a>
+
+      <nav aria-label="Sekundär">
+        <ul role="list">
+          <li><a href="/persoenliches-budget">Persönliches Budget</a></li>
+          <li><a href="/stellenangebote">Stellenangebote</a></li>
+          <li><a href="/leistungen">Leistungen</a></li>
+        </ul>
+        <ul role="list">
+          <li><a href="/ueber-uns">Über uns</a></li>
+          <li><a href="/impressum">Impressum</a></li>
+          <li><a href="/datenschutz">Datenschutz</a></li>
+        </ul>
+      </nav>
+
+      <div class="social-media">
+        <h2>Folge uns auf Face&shy;book und Insta&shy;gram!</h2>
+
+        <ul aria-label="Social Media" role="list">
+          <li>
+            <a
+              class="focus-fix"
+              href="https://www.facebook.com/Assiston-514676465318227"
+              rel="noopener noreferrer"
+            >
+              <Image
+                alt="Assiston e.V. Facebook (externer Link)"
+                src={logoFacebook}
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              class="focus-fix"
+              href="https://www.instagram.com/assiston.e.v/"
+              rel="noopener noreferrer"
+            >
+              <Image
+                alt="Assiston e.V. Instagram (externer Link)"
+                src={logoInstagram}
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <a href="https://www.aktion-mensch.de/" rel="noopener noreferrer">
+        <Image alt="Assiston e.V. Startseite" src={logoAktionMensch} />
+      </a>
+    </div>
+
+    <p>&copy; {currentYear} Assiston e.V.</p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: var(--color-neutral-800);
+    color: var(--color-neutral-50);
+    padding: var(--space-2xl) var(--space-m);
+  }
+
+  .container {
+    padding: var(--space-m) inherit;
+  }
+
+  h2 {
+    hyphens: manual;
+  }
+
+  a {
+    height: fit-content;
+  }
+
+  .focus-fix:hover img,
+  .focus-fix:focus img {
+    outline: var(--outline-size) var(--outline-style) white;
+    outline-offset: var(--outline-offset, var(--outline-size));
+  }
+
+  .flex {
+    border-bottom: 1px solid var(--color-neutral-50);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+    justify-content: space-between;
+    padding-bottom: var(--space-m);
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+  }
+
+  h2 {
+    color: var(--color-light-cream-50);
+    font-family: "Lexend Medium", Geneva, Tahoma, sans-serif;
+    font-size: var(--step-1);
+  }
+
+  nav[aria-label="Sekundär"] ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  ul[aria-label="Social Media"] {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+    margin-top: var(--space-2xs);
+  }
+</style>

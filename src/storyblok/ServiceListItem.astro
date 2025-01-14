@@ -1,0 +1,31 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+import { Image } from "astro:assets";
+
+const { blok } = Astro.props;
+---
+
+<li {...storyblokEditable(blok)}>
+  <div class="img-container">
+    <Image alt="" height={100} src={blok.image.filename} width={100} />
+  </div>
+  <div class="highlight">{blok.title}</div>
+</li>
+
+<style>
+  .img-container {
+    background: var(--color-light-cream-100);
+    border-radius: 8px;
+    padding: var(--space-m);
+  }
+
+  .img-container img {
+    margin: 0 auto;
+  }
+
+  .highlight {
+    font-size: var(--step-2);
+    margin-top: var(--space-s);
+    text-align: center;
+  }
+</style>

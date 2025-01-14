@@ -1,0 +1,20 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+
+const { blok } = Astro.props;
+---
+
+<div {...storyblokEditable(blok)}>
+  <dt class="highlight">{blok.title}</dt>
+  <dd>{blok.description}</dd>
+</div>
+
+<style>
+  dt {
+    font-size: var(--step-2);
+  }
+
+  dd {
+    margin: var(--space-s) 0 0 0;
+  }
+</style>

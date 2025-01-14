@@ -1,0 +1,17 @@
+---
+import { storyblokEditable, renderRichText } from "@storyblok/astro";
+import { Image } from "astro:assets";
+
+const { blok } = Astro.props;
+const content = renderRichText(blok.Richtext);
+---
+
+<div>
+  <div class="number-and-image">
+    <div aria-hidden="true" class="number">
+      {blok.Number}
+    </div>
+    <Image alt="" height={300} src={blok.Image.filename} width={300} />
+  </div>
+  <Fragment set:html={content} {...storyblokEditable(blok)} />
+</div>
