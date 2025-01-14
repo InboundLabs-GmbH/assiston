@@ -1,9 +1,10 @@
 ---
+import { useStoryblokApi } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
 import Layout from "@layouts/Layout.astro";
 
 import { Image } from "astro:assets";
-import HeroSection from "@components/hero-section.astro";
-import heroImage from "../images/hero-image-index.png";
 
 import home from "@images/illustrations/index/home.svg";
 import hobby from "@images/illustrations/index/hobby.svg";
@@ -15,107 +16,48 @@ import check from "@images/illustrations/index/2-check.svg";
 import goals from "@images/illustrations/index/3-goals.svg";
 import payment from "@images/illustrations/index/4-payment.svg";
 
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/home", {
+  version: "draft",
+});
+
+const story = data.story;
+
 const gallery = [
   { src: home, title: "Arbeit" },
   { src: hobby, title: "Freizeit" },
   { src: study, title: "Schule / Studium" },
   { src: work, title: "Zuhause" },
 ];
-
-const steps = [
-  {
-    src: enquiry,
-    title: "1. Antrag­stellung",
-    description:
-      "Die Antragstellung erfolgt nur bei einem Leistungsträger. s. Sozialgesetzbuch 9, Paragraph 29 (SGB IX, §29) <br /> <br /> “Auf Antrag der Leistungsberechtigten werden Leistungen zur Teilhabe durch die Leistungsform eines persönlichen Budgets ausgeführt, um den Leistungsberechtigten in eigener Verantwortung ein möglichst selbstbestimmtes Leben zu ermöglichen.” <br /> <br /> Wir unterstützen Sie bei der Antragstellung beim entsprechenden Leistungsträger.",
-  },
-  {
-    src: check,
-    title: "2. Prü­fung des An­spruchs",
-    description:
-      "Der jeweilige Leistungsträger prüft Ihren Anspruch und führt eine Bedarfsermittlung durch. Dabei wird ermittelt, welche Unterstützung Sie benötigen und wie hoch das Persönliche Budget ausfällt.",
-  },
-  {
-    src: goals,
-    title: "3. Zielver­einbarung",
-    description:
-      "Dies ist die Grundlage für den Bewilligungsbescheid und muss von beiden Parteien unterschrieben werden.",
-  },
-  {
-    src: payment,
-    title: "4. Auszahl­ung des Persön­lichen Budgets",
-    description:
-      "Im besten Fall übernehmen wir direkt mit dem Kostenträger die Abrechnung, damit Sie keinen bürokratischen Aufwand haben.",
-  },
-];
-
-const team = [
-  {
-    title: "Team­koordination & Einsatz­planung",
-    description:
-      "Wir erstellen monatliche Dienst- und Backup-Pläne und berücksichtigen dabei Ihre Wünsche und die der Assistent*innen.",
-  },
-  {
-    title: "Team­sitzung",
-    description:
-      "Regelmäßige Teamtreffen stärken das Zusammengehörigkeitsgefühl und verbessern die Kommunikation.",
-  },
-  {
-    title: "Büro­kratie",
-    description:
-      "Wir übernehmen den gesamten administrativen Teil – von der Buchhaltung bis zur Lohnabrechnung.",
-  },
-];
 ---
 
 <Layout title="Assiston e.V. - Startseite">
-  <HeroSection
-    heading="Herzlich Willkommen"
-    kicker="bei Assiston Assistenzhilfe"
-    src={heroImage}
-  />
+  <StoryblokComponent blok={story.content.body[0]} />
 
   <main id="main">
     <div class="container">
       <section aria-label="Assistenz">
         <div>
-          <h2>Persön&shy;liche Assis&shy;tenz</h2>
+          <StoryblokComponent blok={story.content.body[1]} />
 
-          <p>
-            Wenn Sie von einem Persönlichen Budget profitieren, können Sie
-            unsere Dienste ganz einfach in Anspruch nehmen:
-          </p>
+          <StoryblokComponent blok={story.content.body[2]} />
 
           <a href="/persoenliches-budget">Persönliches Budget</a>
 
-          <p>
-            Unser Assistenzdienst ist dazu da, um Ihnen das Leben unabhängiger
-            und selbstbestimmter zu machen und können Ihren gesamten
-            Lebensbereich umfassen. Die Persönliche Assistent*innen unterstützen
-            Sie dabei.
-          </p>
+          <StoryblokComponent blok={story.content.body[3]} />
 
-          <p>
-            Die Aufgaben können dabei vielfältig sein und der Umfang richtet
-            sich nach Ihrem individuellen Bedarf.
-          </p>
+          <StoryblokComponent blok={story.content.body[4]} />
         </div>
 
         <div>
-          <h3>Wir bieten Hilfe an bei:</h3>
+          <StoryblokComponent blok={story.content.body[5]} />
 
-          <ul>
-            <li>Kleinen Botengängen</li>
-            <li>Der Kommunikation (mit wem?)</li>
-            <li>Haushalts- und Pflegetätigkeiten</li>
-            <li>Ausflügen in den Urlaub</li>
-            <li>24-Stunden-Betreuung</li>
-          </ul>
+          <StoryblokComponent blok={story.content.body[6]} />
         </div>
       </section>
 
       <section aria-label="Unterstützung">
-        <h2>Be&shy;rei&shy;che der Un&shy;ter&shy;stüt&shy;zung</h2>
+        <StoryblokComponent blok={story.content.body[7]} />
 
         <ul class="gallery" role="list">
           {
@@ -129,37 +71,41 @@ const team = [
         </ul>
 
         <dl>
-          {
-            steps.map(({ src, title, description }) => (
-              <div class="card-wrapper">
-                <Image alt="" src={src} />
-                <div>
-                  <dt class="highlight">{title}</dt>
-                  <dd set:html={description} />
-                </div>
-              </div>
-            ))
-          }
+          <div class="card-wrapper">
+            <Image alt="" src={enquiry} />
+            <div>
+              <StoryblokComponent blok={story.content.body[8]} />
+            </div>
+          </div>
+          <div class="card-wrapper">
+            <Image alt="" src={check} />
+            <div>
+              <StoryblokComponent blok={story.content.body[9]} />
+            </div>
+          </div>
+          <div class="card-wrapper">
+            <Image alt="" src={goals} />
+            <div>
+              <StoryblokComponent blok={story.content.body[10]} />
+            </div>
+          </div>
+          <div class="card-wrapper">
+            <Image alt="" src={payment} />
+            <div>
+              <StoryblokComponent blok={story.content.body[11]} />
+            </div>
+          </div>
         </dl>
 
         <section aria-label="Team">
-          <h2>Dein Team</h2>
+          <StoryblokComponent blok={story.content.body[12]} />
 
-          <p>
-            Nachdem der Antrag genehmigt wurde, sorgen wir für die
-            Zusammenstellung Ihres Teams. Dabei steht die Sympathie zwischen
-            Ihnen und den Assistent*innen an oberster Stelle.
-          </p>
+          <StoryblokComponent blok={story.content.body[13]} />
 
           <dl>
-            {
-              team.map(({ title, description }) => (
-                <div class="item">
-                  <dt class="highlight">{title}</dt>
-                  <dd>{description}</dd>
-                </div>
-              ))
-            }
+            <StoryblokComponent blok={story.content.body[14]} />
+            <StoryblokComponent blok={story.content.body[15]} />
+            <StoryblokComponent blok={story.content.body[16]} />
           </dl>
         </section>
       </section>
@@ -254,16 +200,6 @@ const team = [
     }
 
     .card-wrapper dd {
-      margin-top: var(--space-s);
-    }
-
-    /* Section 3 */
-
-    section[aria-label="Team"] .highlight {
-      font-size: var(--step-2);
-    }
-
-    section[aria-label="Team"] dd {
       margin-top: var(--space-s);
     }
   </style>

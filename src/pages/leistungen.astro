@@ -1,16 +1,13 @@
 ---
+import { useStoryblokApi } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
 import Layout from "@layouts/Layout.astro";
-import HeroSection from "@components/hero-section.astro";
 
 import { Image } from "astro:assets";
-import heroImage from "@images/hero-image-services.png";
 
 import carousel from "@images/services/1-carousel.jpeg";
 
-import serviceOne from "@images/services/2-services.svg";
-import serviceTwo from "@images/services/3-services.svg";
-import serviceThree from "@images/services/4-services.svg";
-import serviceFour from "@images/services/5-services.svg";
 import diagram from "@images/services/6-diagram.svg";
 
 import listItemOne from "@images/services/7-list-item.svg";
@@ -19,32 +16,11 @@ import listItemThree from "@images/services/9-list-item.svg";
 import listItemFour from "@images/services/10-list-item.svg";
 import listItemFive from "@images/services/11-list-item.svg";
 
-const services = [
-  {
-    src: serviceOne,
-    title: "1. Erstgespräch",
-    description:
-      "Dabei besprechen wir Ihre Wünsche und helfen Ihnen bei der Antragstellung, falls Sie noch keinen gestellt haben.",
-  },
-  {
-    src: serviceTwo,
-    title: "2. Team finden",
-    description:
-      "Nachdem Ihr Antrag genehmigt wurde, kümmern wir uns in Absprache mit Ihnen um die Zusammenstellung eines Assistenzteams.",
-  },
-  {
-    src: serviceThree,
-    title: "3. Team­koordination und Team­sitzungen",
-    description:
-      "Wir helfen bei der Organisation und Koordination der Teams und legen Wert auf regelmäßige Teamsitzungen.",
-  },
-  {
-    src: serviceFour,
-    title: "4. Personal­verwaltung und Ab­rechnung",
-    description:
-      "Wir übernehmen komplett alle administrativen Aufgaben für Sie.",
-  },
-];
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/leistungen", {
+  version: "draft",
+});
+const story = data.story;
 
 const listItems = [
   { src: listItemOne, title: "Eigener Dienstplan" },
@@ -56,39 +32,24 @@ const listItems = [
 ---
 
 <Layout title="Leistungen - Assiston e.V.">
-  <HeroSection
-    heading="Unsere Leistungen"
-    kicker="Kurze Beschreibung hinzufügen?"
-    src={heroImage}
-  />
+  <StoryblokComponent blok={story.content.body[0]} />
 
   <main id="main">
     <section aria-label="Ablauf">
       <div class="container">
         <div class="intro">
           <div class="intro-text">
-            <h2>Sie haben sich für eine persönliche Assistenz entschieden.</h2>
-            <p>
-              Jetzt helfen wir Ihnen dabei, ein Rundum-Sorglos-Paket zur
-              Verfügung zu stellen, damit Sie sich auf ein selbstbestimmtes
-              Leben konzentrieren können.
-            </p>
+            <StoryblokComponent blok={story.content.body[1]} />
           </div>
+
           <Image alt="" src={carousel} width={560} />
         </div>
 
         <dl>
-          {
-            services.map(({ src, title, description }) => (
-              <div class="process-container">
-                <Image alt="" src={src} width={300} />
-                <div class="details-text">
-                  <dt class="highlight">{title}</dt>
-                  <dd>{description}</dd>
-                </div>
-              </div>
-            ))
-          }
+          <StoryblokComponent blok={story.content.body[2]} />
+          <StoryblokComponent blok={story.content.body[3]} />
+          <StoryblokComponent blok={story.content.body[4]} />
+          <StoryblokComponent blok={story.content.body[5]} />
         </dl>
       </div>
     </section>
@@ -116,24 +77,7 @@ const listItems = [
 
     <section aria-label="Umsetzung">
       <div class="container">
-        <h2>Umsetzung</h2>
-
-        <div class="action-container">
-          <p class="highlight">
-            Jeder Kunde hat andere Anforderungen, auf die wir eingehen!
-          </p>
-          <div>
-            <p>
-              Wir freuen uns, individuell auf jeden Kunden mit den
-              unterschiedlichsten Bedürfnissen eingehen zu dürfen.
-            </p>
-            <p>
-              So weit es geht, versuchen wir Dienstpläne, Kommunikation und
-              andere Themen so zu gestalten, dass ein optimales Arbeitsumfeld
-              für Sie entsteht.
-            </p>
-          </div>
-        </div>
+        <StoryblokComponent blok={story.content.body[6]} />
       </div>
     </section>
   </main>
@@ -188,15 +132,15 @@ const listItems = [
     margin-top: var(--space-2xl);
   }
 
-  .details-text {
+  /* .details-text {
     background: var(--color-neutral-50);
     display: flex;
     flex-direction: column;
     padding: var(--space-l);
     max-width: 50ch;
-  }
+  } */
 
-  .process-container {
+  /* .process-container {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -206,7 +150,7 @@ const listItems = [
 
   .process-container:nth-child(even) {
     flex-direction: row-reverse;
-  }
+  } */
 
   /* Section 2 */
 

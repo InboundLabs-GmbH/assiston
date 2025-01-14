@@ -1,32 +1,28 @@
 ---
+import { useStoryblokApi } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
 import Layout from "@layouts/Layout.astro";
-import HeroSection from "@components/hero-section.astro";
 
 import { Image } from "astro:assets";
-import heroImage from "@images/hero-image-contact.png";
 
 import group from "@images/contact/1-group.jpeg";
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/kontakt", {
+  version: "draft",
+});
+const story = data.story;
 ---
 
 <Layout title="Kontakt - Assiston e.V.">
-  <HeroSection
-    heading="Kontakt"
-    kicker="Beschreibung hinzufügen?"
-    src={heroImage}
-  />
+  <StoryblokComponent blok={story.content.body[0]} />
+
   <main id="main">
     <div class="container">
       <div class="flex">
         <div>
-          <h2 class="highlight">
-            Sie haben Fragen zu unseren Leistungen oder wünschen eine
-            persönliche Beratung?
-          </h2>
-          <p>
-            Dann schreiben Sie uns gerne eine Nachricht über das
-            Kontaktformular, schicken uns eine E-Mail oder rufen direkt bei uns
-            an.
-          </p>
+          <StoryblokComponent blok={story.content.body[1]} />
         </div>
         <Image
           alt="Gruppe von Menschen stehen in einem Kreis und lachen miteinander"
@@ -35,7 +31,7 @@ import group from "@images/contact/1-group.jpeg";
         />
       </div>
 
-      <p>Der Zugang ist barriere&shy;frei!</p>
+      <StoryblokComponent blok={story.content.body[2]} />
     </div>
   </main>
 </Layout>
@@ -46,28 +42,19 @@ import group from "@images/contact/1-group.jpeg";
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-m);
-  }
 
-  .highlight {
-    font-size: var(--step-2);
-    max-width: 30ch;
-  }
+    h2 {
+      font-size: var(--step-2);
+      max-width: 30ch;
+    }
 
-  p {
-    max-width: 45ch;
+    p {
+      max-width: 45ch;
+    }
   }
 
   img {
     border-radius: 8px;
     height: auto;
-  }
-
-  .container > p:last-child {
-    color: var(--color-deep-burgundy-500);
-    font-family: "Lexend Medium", Geneva, Tahoma, sans-serif;
-    font-size: var(--step-3);
-    hyphens: manual;
-    margin: var(--space-2xl) auto 0 auto;
-    width: fit-content;
   }
 </style>

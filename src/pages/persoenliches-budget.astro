@@ -1,179 +1,60 @@
 ---
+import { useStoryblokApi } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
 import Layout from "@layouts/Layout.astro";
-import HeroSection from "@components/hero-section.astro";
-import ExternalLink from "@components/utils/ExternalLink.astro";
 
-import { Image } from "astro:assets";
-import heroImage from "@images/hero-image-personal-budget.png";
-
-import galleryOne from "@images/personal-budget/1-personal-budget.svg";
-import galleryTwo from "@images/personal-budget/2-personal-budget.svg";
-import galleryThree from "@images/personal-budget/3-personal-budget.svg";
-
-import enquiryOne from "@images/personal-budget/enquiry/1-enquiry.svg";
-import enquiryTwo from "@images/personal-budget/enquiry/2-enquiry.svg";
-import enquiryThree from "@images/personal-budget/enquiry/3-enquiry.svg";
-import enquiryFour from "@images/personal-budget/enquiry/4-enquiry.svg";
-import enquiryFive from "@images/personal-budget/enquiry/5-enquiry.svg";
-
-import serviceOne from "@images/personal-budget/services/1-services.svg";
-import serviceTwo from "@images/personal-budget/services/2-services.svg";
-import serviceThree from "@images/personal-budget/services/3-services.svg";
-import serviceFour from "@images/personal-budget/services/4-services.svg";
-import serviceFive from "@images/personal-budget/services/5-services.svg";
-import serviceSix from "@images/personal-budget/services/6-services.svg";
-
-const gallery = [
-  {
-    src: galleryOne,
-    title: "Men­schen mit Behinderungen",
-    description:
-      "Jede Person mit Behinderung oder von Behinderung bedrohte Person, egal wie schwer die Behinderung ist.",
-  },
-  {
-    src: galleryTwo,
-    title: "Unter­stützungs­bedürftige",
-    description:
-      "Menschen, die aufgrund ihrer Behinderung das Geld nicht alleine verwalten können.",
-  },
-  {
-    src: galleryThree,
-    title: "Elternhilfe",
-    description: "Eltern für ihre behinderten Kinder.",
-  },
-];
-
-const process = [
-  {
-    src: enquiryOne,
-    title: "Beratungsgespräch",
-    description: "bei einem Kostenträger oder einer EUTB.",
-  },
-  {
-    src: enquiryTwo,
-    title: "Antragstellung",
-    description:
-      "Der erste Schritt ist, einen Antrag bei Ihrer zuständigen Sozialbehörde oder dem Träger der Eingliederungshilfe zu stellen.",
-  },
-  {
-    src: enquiryThree,
-    title: "Bedarfsfeststellung",
-    description:
-      "In der Regel wird ein Bedarfsgutachten erstellt, um festzustellen, welche Unterstützungsleistungen für Sie erforderlich sind.",
-  },
-  {
-    src: enquiryFour,
-    title: "Zielvereinbarung",
-    description:
-      "Die Zielvereinbarung muss zu Ihnen passen und Sie müssen die Ziele auch schaffen können.",
-  },
-  {
-    src: enquiryFive,
-    title: "Bewilligung und Bescheid",
-    description:
-      "Wenn Ihr Antrag genehmigt wird, erhalten Sie das Persönliche Budget, welches Sie dann nutzen können, um Ihre gewünschte Dienstleistung zu finanzieren.",
-  },
-];
-
-const services = [
-  { src: serviceOne, title: "Wohnen und Alltagsunter­stützung" },
-  { src: serviceTwo, title: "Grundpflege" },
-  { src: serviceThree, title: "Freizeit und Kultur" },
-  { src: serviceFour, title: "Urlaub" },
-  { src: serviceFive, title: "Arbeit, Ausbildung, Studium & Schule" },
-  { src: serviceSix, title: "Begleitung zu Terminen" },
-];
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/persoenliches-budget", {
+  version: "draft",
+});
+const story = data.story;
 ---
 
 <Layout title="Persönliches Budget - Assiston e.V.">
-  <HeroSection
-    heading="Das Persön­liche Budget"
-    kicker="Was ist das Persönliche Budget und wie kann ich es erhalten?"
-    src={heroImage}
-  />
+  <StoryblokComponent blok={story.content.body[0]} />
 
   <main id="main">
     <section aria-label="Allgemein">
       <div class="container">
-        <p class="highlight">
-          Ein Persönliches Budget ist eine wichtige finanzielle Unterstützung.
-        </p>
-        <p>
-          Das Persönliche Budget hilft, ein selbstbestimmtes Leben zu führen.
-          Sie können selbst entscheiden, welche Assistenzleistungen Sie
-          benötigen.
-        </p>
-
-        <h2>Wer kann es beantragen?</h2>
+        <StoryblokComponent blok={story.content.body[1]} />
+        <StoryblokComponent blok={story.content.body[2]} />
 
         <dl class="gallery">
-          {
-            gallery.map(({ src, title, description }) => (
-              <div>
-                <Image alt="" src={src} />
-                <dt class="highlight">{title}</dt>
-                <dd>{description}</dd>
-              </div>
-            ))
-          }
+          <StoryblokComponent blok={story.content.body[3]} />
+          <StoryblokComponent blok={story.content.body[4]} />
+          <StoryblokComponent blok={story.content.body[5]} />
         </dl>
       </div>
     </section>
 
     <section aria-label="Prozess">
       <div class="container">
-        <h2>Wo kann ich es beantragen?</h2>
-
-        <p>
-          Sie schreiben einen Antrag für das Persönliche Budget und reichen
-          diesen bei ihrer zuständigen Behörde ein. Wir helfen Ihnen dabei, den
-          richtigen Kostenträger für Sie zu finden. Hier können Sie mehr
-          erfahren: <ExternalLink
-            href="https://www.bmas.de/DE/Soziales/Teilhabe-und-Inklusion/Rehabilitation-und-Teilhabe/Persoenliches-Budget/Fragen-und-Antworten-DGS/faq-persoenliches-budget.html"
-            name="Fragen und Antworten zum persönlichen Budget"
-          />
-        </p>
-
-        <h3>Ablauf des Verfahrens:</h3>
+        <StoryblokComponent blok={story.content.body[6]} />
+        <StoryblokComponent blok={story.content.body[7]} />
 
         <dl>
-          {
-            process.map(({ src, title, description }, index) => (
-              <div>
-                <div class="number-and-image">
-                  <div aria-hidden="true" class="number">
-                    {index + 1}
-                  </div>
-                  <Image alt="" src={src} width={300} />
-                </div>
-                <dt class="highlight">{title}</dt>
-                <dd>{description}</dd>
-              </div>
-            ))
-          }
+          <StoryblokComponent blok={story.content.body[8]} />
+          <StoryblokComponent blok={story.content.body[9]} />
+          <StoryblokComponent blok={story.content.body[10]} />
+          <StoryblokComponent blok={story.content.body[11]} />
+          <StoryblokComponent blok={story.content.body[12]} />
         </dl>
 
-        <p class="highlight">
-          Wird das Persönliche Budget ausschließlich durch die
-          Pflegeversicherung erbracht, ist keine Zielvereinbarung notwendig.
-        </p>
+        <StoryblokComponent blok={story.content.body[13]} />
       </div>
     </section>
 
     <section aria-label="Leistungen">
       <div class="container">
-        <h2>Welche Leistungen sind für Sie hier enthalten?</h2>
+        <StoryblokComponent blok={story.content.body[14]} />
         <ul role="list">
-          {
-            services.map(({ src, title }) => (
-              <li>
-                <div class="img-container">
-                  <Image alt="" src={src} />
-                </div>
-                <p class="highlight">{title}</p>
-              </li>
-            ))
-          }
+          <StoryblokComponent blok={story.content.body[15]} />
+          <StoryblokComponent blok={story.content.body[16]} />
+          <StoryblokComponent blok={story.content.body[17]} />
+          <StoryblokComponent blok={story.content.body[18]} />
+          <StoryblokComponent blok={story.content.body[19]} />
+          <StoryblokComponent blok={story.content.body[20]} />
         </ul>
       </div>
     </section>
@@ -239,49 +120,12 @@ const services = [
     justify-items: center;
   }
 
-  section[aria-label="Prozess"] dl dt {
-    margin-top: var(--space-m);
-  }
-
-  section[aria-label="Prozess"] dl div {
-    max-width: 400px;
-  }
-
-  section[aria-label="Prozess"] dl div .highlight {
-    font-size: var(--step-2);
-    margin-bottom: var(--space-xs);
-  }
-
-  section[aria-label="Prozess"] dl div img {
-    width: 100%;
-  }
-
   section[aria-label="Prozess"] .container p:last-child {
     color: var(--color-neutral-900);
     font-size: var(--step-1);
     margin-top: var(--space-xl);
     max-width: 100%;
     text-align: center;
-  }
-
-  .number-and-image {
-    border-top: 3px solid var(--color-cal-poly-green-500);
-    position: relative;
-  }
-
-  .number {
-    align-items: center;
-    background: var(--color-cal-poly-green-500);
-    color: var(--color-light-cream-50);
-    display: flex;
-    font-size: var(--step-3);
-    justify-content: center;
-    padding: var(--space-m);
-    position: absolute;
-    width: var(--step-1);
-    height: var(--step-1);
-    top: 0;
-    left: 0;
   }
 
   /* Section 3 */

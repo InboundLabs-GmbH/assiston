@@ -1,54 +1,28 @@
 ---
+import { useStoryblokApi } from "@storyblok/astro";
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
 import Layout from "@layouts/Layout.astro";
-import HeroSection from "@components/hero-section.astro";
 
 import { Image } from "astro:assets";
-import heroImage from "@images/hero-image-about-us.png";
 
 import people from "@images/jobs/1-people.jpeg";
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/stellenangebote", {
+  version: "draft",
+});
+const story = data.story;
 ---
 
 <Layout title="Stellenangebote - Assiston e.V." noContactSection>
-  <HeroSection
-    heading="Jobs mit Sinn"
-    kicker="Kommen Sie in unser Team"
-    src={heroImage}
-  />
+  <StoryblokComponent blok={story.content.body[0]} />
 
   <main id="main">
     <div class="container">
       <Image alt="" height={532} src={people} />
 
-      <p class="highlight">
-        Wir haben es uns zur Aufgabe gemacht, Menschen mit Hilfebedarf ein
-        selbstbestimmtes Leben zu ermöglichen. Unterstützen Sie uns dabei und
-        kommen Sie in unser Team als:
-      </p>
-
-      <h2>Persönliche Assistent*in</h2>
-
-      <p>
-        Wir freuen uns über Berufs- und/oder Quereinsteiger*in mit Sinn für
-        Vielfalt, die unsere Teams bereichern.
-      </p>
-      <p>Das Aufgabengebiet ist äußerst vielfältig und spannend.</p>
-      <p>
-        Die Dienstpläne werden jeden Monat in Zusammenarbeit besprochen und
-        erstellt.
-      </p>
-      <p>
-        Je nach Art der Anstellung, können die Dienste variieren, so dass die
-        Tätigkeit als Persönliche Assistenz als Teilzeitmitarbeiter,
-        Werkstudent*in oder Minijobber gut mit den persönlichen Lebensumständen
-        in Einklang gebracht werden können.
-      </p>
-
-      <p>
-        Bei Fragen zu den offenen Assistenzstellen oder Ihrer Bewerbung
-        kontaktieren Sie uns: <a href="mailto:info@deinassistenzdienst.de">
-          info@deinassistenzdienst.de
-        </a> oder <a href="tel:+4922129297380">+49 221 29 29 73 80</a>.
-      </p>
+      <StoryblokComponent blok={story.content.body[1]} />
     </div>
   </main>
 </Layout>
