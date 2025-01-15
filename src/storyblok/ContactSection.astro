@@ -1,10 +1,14 @@
 ---
+import { storyblokEditable } from "@storyblok/astro";
+
 import { Image } from "astro:assets";
 
 import phone from "@images/contact/illustrations/1-phone.svg";
 import email from "@images/contact/illustrations/2-email.svg";
 import address from "@images/contact/illustrations/3-address.svg";
 import hours from "@images/contact/illustrations/4-hours.svg";
+
+const { blok } = Astro.props;
 
 const items = [
   {
@@ -27,7 +31,7 @@ const items = [
 ];
 ---
 
-<section aria-label="Kontakt">
+<section aria-label="Kontakt" {...storyblokEditable(blok)}>
   <div class="container">
     <h2>Kontaktieren Sie uns</h2>
 
