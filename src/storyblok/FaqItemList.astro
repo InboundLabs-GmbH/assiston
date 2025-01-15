@@ -1,0 +1,26 @@
+---
+import { storyblokEditable, renderRichText } from "@storyblok/astro";
+
+const { blok } = Astro.props;
+---
+
+<ul {...storyblokEditable(blok)} role="list">
+  {
+    // @ts-ignore
+    blok.items.map(({ content, headline }) => (
+      <li>
+        <h2>{headline}</h2>
+        <p set:html={renderRichText(content)}>{content}</p>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  ul {
+    display: grid;
+    grid-gap: var(--space-m);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 30ch), 1fr));
+    margin-top: var(--space-xl);
+  }
+</style>

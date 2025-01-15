@@ -1,0 +1,26 @@
+---
+import { storyblokEditable } from "@storyblok/astro";
+
+const { blok } = Astro.props;
+---
+
+<div {...storyblokEditable(blok)}>
+  <h1>{blok.headline}</h1>
+  <div class="smol-css-grid">
+    <p class="highlight">{blok.highlight}</p>
+    <p>{blok.content}</p>
+  </div>
+</div>
+
+<style>
+  .smol-css-grid {
+    display: grid;
+    grid-gap: var(--space-m);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 40ch), 1fr));
+    margin-top: var(--space-s);
+  }
+
+  p {
+    margin: 0;
+  }
+</style>
