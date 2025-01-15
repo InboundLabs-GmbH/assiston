@@ -17,7 +17,10 @@ const story = data.story;
   <main id="main">
     <section aria-label="Allgemein">
       <div class="container">
-        <StoryblokComponent blok={story.content.body[1]} />
+        <div class="smol-css-grid">
+          <StoryblokComponent blok={story.content.body[1]} />
+        </div>
+
         <StoryblokComponent blok={story.content.body[2]} />
 
         <dl class="gallery">
@@ -69,14 +72,26 @@ const story = data.story;
     max-width: 30ch;
   }
 
+  .smol-css-grid {
+    display: grid;
+    grid-gap: var(--space-m);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 40ch), 1fr));
+
+    p {
+      margin: 0;
+    }
+  }
+
   /* Section 1 */
 
   section[aria-label="Allgemein"] {
     background: var(--color-light-cream-50);
   }
 
-  section[aria-label="Allgemein"] h2 {
-    margin-top: var(--space-l);
+  section[aria-label="Allgemein"] {
+    h2 {
+      margin-top: var(--space-2xl);
+    }
   }
 
   .highlight {
@@ -109,8 +124,10 @@ const story = data.story;
     margin: 0;
   }
 
-  section[aria-label="Prozess"] h3 {
-    margin-top: var(--space-l);
+  section[aria-label="Prozess"] {
+    h3 {
+      margin: var(--space-2xl) 0 var(--space-l) 0;
+    }
   }
 
   section[aria-label="Prozess"] dl {

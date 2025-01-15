@@ -96,20 +96,22 @@ const gallery = [
             </div>
           </div>
         </dl>
-
-        <section aria-label="Team">
-          <StoryblokComponent blok={story.content.body[12]} />
-
-          <StoryblokComponent blok={story.content.body[13]} />
-
-          <dl>
-            <StoryblokComponent blok={story.content.body[14]} />
-            <StoryblokComponent blok={story.content.body[15]} />
-            <StoryblokComponent blok={story.content.body[16]} />
-          </dl>
-        </section>
       </section>
     </div>
+
+    <section aria-label="Team">
+      <div class="container">
+        <StoryblokComponent blok={story.content.body[12]} />
+
+        <StoryblokComponent blok={story.content.body[13]} />
+
+        <dl>
+          <StoryblokComponent blok={story.content.body[14]} />
+          <StoryblokComponent blok={story.content.body[15]} />
+          <StoryblokComponent blok={story.content.body[16]} />
+        </dl>
+      </div>
+    </section>
   </main>
 
   <style>
@@ -150,6 +152,12 @@ const gallery = [
       text-decoration: none;
     }
 
+    section[aria-label="Assistenz"] div:has(li) {
+      p {
+        margin: 0;
+      }
+    }
+
     /* Section 2 - Gallery */
 
     section[aria-label="Unterstützung"] h2 {
@@ -176,6 +184,10 @@ const gallery = [
 
     /* Section 2 - Steps */
 
+    section[aria-label="Unterstützung"] {
+      margin-top: var(--space-2xl);
+    }
+
     section[aria-label="Unterstützung"] dl {
       margin-top: var(--space-2xl);
     }
@@ -192,6 +204,7 @@ const gallery = [
 
     .card-wrapper div {
       background: var(--color-light-cream-50);
+      border-radius: var(--border-radius);
       padding: var(--space-xl) var(--space-m) var(--space-m) var(--space-m);
     }
 
@@ -201,6 +214,12 @@ const gallery = [
 
     .card-wrapper dd {
       margin-top: var(--space-s);
+    }
+
+    /* Section 2 - Team */
+
+    section[aria-label="Team"] {
+      background: var(--color-light-cream-50);
     }
   </style>
 </Layout>
