@@ -13,7 +13,11 @@ export default defineConfig({
       components: {
         budgetListItem: "storyblok/BudgetListItem",
         contactSection: "storyblok/ContactSection",
+        contactItem: "storyblok/ContactItem",
         descriptionListItem: "storyblok/DescriptionListItem",
+        faqIntro: "storyblok/FaqIntro",
+        faqItem: "storyblok/FaqItem",
+        faqItemList: "storyblok/FaqItemList",
         footer: "storyblok/Footer",
         galleryItem: "storyblok/GalleryItem",
         heroSection: "storyblok/HeroSection",
