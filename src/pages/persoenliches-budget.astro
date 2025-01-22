@@ -44,7 +44,9 @@ const story = data.story;
           <StoryblokComponent blok={story.content.body[12]} />
         </dl>
 
-        <StoryblokComponent blok={story.content.body[13]} />
+        <div class="extra">
+          <StoryblokComponent blok={story.content.body[13]} />
+        </div>
       </div>
     </section>
 
@@ -137,11 +139,11 @@ const story = data.story;
     justify-items: center;
   }
 
-  section[aria-label="Prozess"] .container p:last-child {
+  .extra {
     color: var(--color-neutral-900);
-    font-size: var(--step-1);
-    margin-top: var(--space-xl);
-    max-width: 100%;
+    /* font-size: var(--step-3); */
+    margin: var(--space-2xl) auto 0 auto;
+    max-width: 90ch;
     text-align: center;
   }
 

@@ -31,7 +31,9 @@ const story = data.story;
         />
       </div>
 
-      <StoryblokComponent blok={story.content.body[2]} />
+      <div class="center">
+        <StoryblokComponent blok={story.content.body[2]} />
+      </div>
     </div>
   </main>
 </Layout>
@@ -56,5 +58,10 @@ const story = data.story;
   img {
     border-radius: 8px;
     height: auto;
+  }
+
+  .center {
+    margin-top: var(--space-xl);
+    text-align: center;
   }
 </style>

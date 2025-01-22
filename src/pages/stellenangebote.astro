@@ -22,7 +22,9 @@ const story = data.story;
     <div class="container">
       <Image alt="" height={532} src={people} />
 
-      <StoryblokComponent blok={story.content.body[1]} />
+      <div class="text">
+        <StoryblokComponent blok={story.content.body[1]} />
+      </div>
     </div>
   </main>
 </Layout>
@@ -48,5 +50,9 @@ const story = data.story;
 
   a {
     color: var(--color-terra-cotta-500);
+  }
+
+  .text {
+    margin-top: var(--space-l);
   }
 </style>
