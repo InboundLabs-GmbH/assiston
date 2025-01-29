@@ -31,7 +31,7 @@ export default defineConfig({
       },
     }),
   ],
-  site: "https://assiston.netlify.app/",
+  site: "https://assistenzhilfe.de/",
   vite: {
     plugins: [basicSsl()],
     server: {
